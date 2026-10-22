@@ -1,0 +1,13 @@
+1. clean_baseline_v1_5conv_aug_fix - late fusion, normalized with std 1 fro rgb. Trained on RGBD images (tained with train_new.py)
+2. clean_baseline_v1_5conv_aug_fix_DEPTH - late fusion, normalized with std 1 for 0-2 channels. Gtayscale normalized depth map used for 0-2 input channels, depth map in mm used for 3 channel. (trained with train.py)
+3. clean_baseline_v1_5conv_aug_fix_DEPTH_noLF - same as clean_baseline_v1_5conv_aug_fix_DEPTH but without late fusion
+4. clean_baseline_v1_5conv_aug_fix_DEPTH_noLF_0 - same as clean_baseline_v1_5conv_aug_fix_DEPTH_noLF, except for 3 channel instead of real depth, all values are 0 for the depth (meaning depth_mm = DEPTH_MEAN_MM), to see effect of 3 channel
+5. clean_baseline_v1_5conv_aug_fix_DEPTH_noLF_norm - same as clean_baseline_v1_5conv_aug_fix_DEPTH_noLF, but here normalization for the 0-2 channels is done with cfg.MODEL.PIXEL_STD = [57.375, 57.120, 58.395, 411.683], so that all 4 channels are in the same scale after normalization. Before they were not in same scale.. 0-2 channels had std ~ 57 after norm, and 3 channel had ~ std 1. Now all have std ~1.
+6. clean_baseline_v1_5conv_aug_fix_DEPTH_noLF_norm_0 - same as clean_baseline_v1_5conv_aug_fix_DEPTH_noLF_norm, but depth is set to 0, like in model 4. to see effect.
+
+
+7. clean_baseline_v1_5conv_aug_fix_noLF_norm_stip_drop05 - RGBD model, inputs normalized to have std ~1 for all inputs, dropout on rgb 0.5 - trained only on dataset from capture session 07.13.25
+8. clean_baseline_v1_5conv_aug_fix_noLF_stip_drop05 - same, but not normalized to same scale ( rgb channels std ~ 57, depth channel std ~ 1) - trained only on dataset from capture session 07.13.25
+9. s0713_zoom_drop05 - same as clean_baseline_v1_5conv_aug_fix_noLF_norm_stip_drop05 + depth zoom augmentation
+10. s0713_zoom_drop05_color_aug - same as s0713_zoom_drop05 + additional color augmentation (light) from train_new_clean.py
+11. clean_baseline_v1_5conv_aug_fix_noLF_norm_stip - same as clean_baseline_v1_5conv_aug_fix_noLF_norm_stip_drop05, but without dropout on rgb

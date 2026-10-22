@@ -1,0 +1,29 @@
+# Large / machine-local things live outside git:
+#   output/  -> /mnt/md0/blagicab/tomato_thesis_runs (checkpoints, metrics, audits)
+#   data     -> raw images + depth in the old repo
+output
+data
+weights/
+*.pth
+*.pkl
+*.pickle
+*.npy
+events.out.tfevents.*
+
+# detectron2 build artifacts (rebuild with: cd detectron2 && python setup.py develop)
+detectron2/build/
+*.egg-info/
+*.so
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Inference visualizations (regenerate any time)
+qual_*/
+aug_preview/
+inspect_input_viz/
+
+# Editors
+.vscode/
+.idea/

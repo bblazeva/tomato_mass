@@ -1,0 +1,417 @@
+1. --model_path output/s0713_zoom_drop05/model_final.pth --dataset_path ./data_s0713/ --split train --n_batches 40 
+=== Gradient audit over 40 batches (mean RMS ± std) ===
+group                        DET grad              MASS grad  mass/det
+stem_conv1        3.670e-04 ± 1.7e-04    2.052e-04 ± 3.1e-04     0.559
+backbone_res      4.286e-04 ± 1.8e-04    2.703e-04 ± 2.6e-04     0.631
+fpn               2.025e-04 ± 6.4e-05    1.492e-04 ± 1.0e-04     0.737
+rpn_head          1.925e-03 ± 1.0e-03    0.000e+00 ± 0.0e+00     0.000
+box_head          6.961e-03 ± 1.9e-03    0.000e+00 ± 0.0e+00     0.000
+mask_head         9.434e-04 ± 5.2e-04    0.000e+00 ± 0.0e+00     0.000
+mass_head         0.000e+00 ± 0.0e+00    1.094e-02 ± 7.6e-03 10935916885.158
+
+--- STEM conv1 per-channel (the headline: who drives the DEPTH input) ---
+             rgb (mean B,G,R)    depth (ch3)  depth/rgb
+DET                 3.558e-04      2.863e-04      0.805
+MASS                2.182e-04      9.247e-05      0.424
+
+KEY READINGS:
+  • MASS depth/rgb ratio = 0.424  (>1 ⇒ mass objective pushes depth harder than RGB at the input)
+  • mass/det in backbone_res = 0.631  (does mass reach the shared trunk, or only its head?)
+
+2. --model_path output/clean_baseline_v1_5conv_aug_fix_noLF_norm_stip/model_final.pth --dataset_path ./data_s0713/ --spli
+t train --n_batches 40
+
+=== Gradient audit over 40 batches (mean RMS ± std) ===
+group                        DET grad              MASS grad  mass/det
+stem_conv1        2.067e-04 ± 7.7e-05    3.791e-05 ± 5.0e-05     0.183
+backbone_res      4.593e-04 ± 1.3e-04    1.596e-04 ± 2.4e-04     0.347
+fpn               1.479e-04 ± 3.2e-05    5.707e-05 ± 7.1e-05     0.386
+rpn_head          1.608e-03 ± 5.7e-04    0.000e+00 ± 0.0e+00     0.000
+box_head          5.826e-03 ± 1.7e-03    0.000e+00 ± 0.0e+00     0.000
+mask_head         6.715e-04 ± 3.6e-04    0.000e+00 ± 0.0e+00     0.000
+mass_head         0.000e+00 ± 0.0e+00    2.924e-03 ± 3.5e-03 2923538527.500
+
+--- STEM conv1 per-channel (the headline: who drives the DEPTH input) ---
+             rgb (mean B,G,R)    depth (ch3)  depth/rgb
+DET                 2.073e-04      1.607e-04      0.775
+MASS                4.020e-05      2.554e-05      0.635
+
+KEY READINGS:
+  • MASS depth/rgb ratio = 0.635  (>1 ⇒ mass objective pushes depth harder than RGB at the input)
+  • mass/det in backbone_res = 0.347  (does mass reach the shared trunk, or only its head?)
+
+3. --model_path output/clean_baseline_v1_5conv_aug_fix_noLF_stip_drop05/model_final.pth --dataset_path ./data_s0713/ --split train --n_batches 40
+
+=== Gradient audit over 40 batches (mean RMS ± std) ===
+group                        DET grad              MASS grad  mass/det
+stem_conv1        6.885e-04 ± 7.1e-04    3.772e-04 ± 3.4e-04     0.548
+backbone_res      2.149e-04 ± 1.5e-04    1.327e-04 ± 1.3e-04     0.618
+fpn               1.556e-04 ± 4.8e-05    1.105e-04 ± 8.2e-05     0.710
+rpn_head          2.065e-03 ± 8.8e-04    0.000e+00 ± 0.0e+00     0.000
+box_head          5.919e-03 ± 1.9e-03    0.000e+00 ± 0.0e+00     0.000
+mask_head         7.006e-04 ± 6.1e-04    0.000e+00 ± 0.0e+00     0.000
+mass_head         0.000e+00 ± 0.0e+00    6.220e-03 ± 5.3e-03 6219853746.308
+
+--- STEM conv1 per-channel (the headline: who drives the DEPTH input) ---
+             rgb (mean B,G,R)    depth (ch3)  depth/rgb
+DET                 7.650e-04      1.572e-05      0.021
+MASS                4.260e-04      5.868e-06      0.014
+
+KEY READINGS:
+  • MASS depth/rgb ratio = 0.014  (>1 ⇒ mass objective pushes depth harder than RGB at the input)
+  • mass/det in backbone_res = 0.618  (does mass reach the shared trunk, or only its head?)
+
+4. --model_path output/clean_baseline_v1_5conv_aug_fix_noLF_norm_stip_drop05/model_final.pth --dataset_path ./data_s0713/ --split train --n_batches 40
+
+=== Gradient audit over 40 batches (mean RMS ± std) ===
+group                        DET grad              MASS grad  mass/det
+stem_conv1        4.316e-04 ± 1.8e-04    1.024e-04 ± 1.0e-04     0.237
+backbone_res      5.821e-04 ± 2.4e-04    2.058e-04 ± 1.8e-04     0.354
+fpn               2.363e-04 ± 8.9e-05    1.241e-04 ± 7.9e-05     0.525
+rpn_head          1.765e-03 ± 5.4e-04    0.000e+00 ± 0.0e+00     0.000
+box_head          6.643e-03 ± 1.6e-03    0.000e+00 ± 0.0e+00     0.000
+mask_head         1.199e-03 ± 8.2e-04    0.000e+00 ± 0.0e+00     0.000
+mass_head         0.000e+00 ± 0.0e+00    6.334e-03 ± 5.0e-03 6334433214.972
+
+--- STEM conv1 per-channel (the headline: who drives the DEPTH input) ---
+             rgb (mean B,G,R)    depth (ch3)  depth/rgb
+DET                 4.273e-04      3.088e-04      0.723
+MASS                1.087e-04      5.513e-05      0.507
+
+KEY READINGS:
+  • MASS depth/rgb ratio = 0.507  (>1 ⇒ mass objective pushes depth harder than RGB at the input)
+  • mass/det in backbone_res = 0.354  (does mass reach the shared trunk, or only its head?)
+
+
+Results on val --n_batches 40 for same models as above
+
+1. 
+
+=== Gradient audit over 40 batches (mean RMS ± std) ===
+group                        DET grad              MASS grad  mass/det
+stem_conv1        8.345e-04 ± 8.6e-04    3.982e-04 ± 4.3e-04     0.477
+backbone_res      8.920e-04 ± 8.2e-04    5.780e-04 ± 5.5e-04     0.648
+fpn               3.767e-04 ± 3.1e-04    4.426e-04 ± 4.6e-04     1.175
+rpn_head          2.376e-03 ± 1.4e-03    0.000e+00 ± 0.0e+00     0.000
+box_head          7.507e-03 ± 3.1e-03    0.000e+00 ± 0.0e+00     0.000
+mask_head         2.480e-03 ± 1.9e-03    0.000e+00 ± 0.0e+00     0.000
+mass_head         0.000e+00 ± 0.0e+00    2.334e-02 ± 1.9e-02 23343029246.904
+
+--- STEM conv1 per-channel (the headline: who drives the DEPTH input) ---
+             rgb (mean B,G,R)    depth (ch3)  depth/rgb
+DET                 8.532e-04      5.909e-04      0.693
+MASS                4.120e-04      2.181e-04      0.529
+
+KEY READINGS:
+  • MASS depth/rgb ratio = 0.529  (>1 ⇒ mass objective pushes depth harder than RGB at the input)
+  • mass/det in backbone_res = 0.648  (does mass reach the shared trunk, or only its head?)
+
+2.
+=== Gradient audit over 40 batches (mean RMS ± std) ===
+group                        DET grad              MASS grad  mass/det
+stem_conv1        3.376e-04 ± 2.1e-04    2.989e-04 ± 4.8e-04     0.885
+backbone_res      8.374e-04 ± 4.5e-04    1.142e-03 ± 1.2e-03     1.364
+fpn               2.607e-04 ± 1.5e-04    3.976e-04 ± 3.3e-04     1.525
+rpn_head          2.286e-03 ± 9.1e-04    0.000e+00 ± 0.0e+00     0.000
+box_head          7.360e-03 ± 1.8e-03    0.000e+00 ± 0.0e+00     0.000
+mask_head         1.551e-03 ± 1.7e-03    0.000e+00 ± 0.0e+00     0.000
+mass_head         0.000e+00 ± 0.0e+00    2.659e-02 ± 1.6e-02 26585013420.962
+
+--- STEM conv1 per-channel (the headline: who drives the DEPTH input) ---
+             rgb (mean B,G,R)    depth (ch3)  depth/rgb
+DET                 3.419e-04      2.397e-04      0.701
+MASS                3.062e-04      1.947e-04      0.636
+
+KEY READINGS:
+  • MASS depth/rgb ratio = 0.636  (>1 ⇒ mass objective pushes depth harder than RGB at the input)
+  • mass/det in backbone_res = 1.364  (does mass reach the shared trunk, or only its head?)
+
+
+3.
+
+=== Gradient audit over 40 batches (mean RMS ± std) ===
+group                        DET grad              MASS grad  mass/det
+stem_conv1        6.467e-04 ± 3.1e-04    9.315e-04 ± 8.3e-04     1.440
+backbone_res      2.301e-04 ± 8.2e-05    3.373e-04 ± 2.5e-04     1.466
+fpn               1.810e-04 ± 6.1e-05    2.873e-04 ± 2.2e-04     1.588
+rpn_head          2.346e-03 ± 8.9e-04    0.000e+00 ± 0.0e+00     0.000
+box_head          6.555e-03 ± 1.5e-03    0.000e+00 ± 0.0e+00     0.000
+mask_head         1.105e-03 ± 9.2e-04    0.000e+00 ± 0.0e+00     0.000
+mass_head         0.000e+00 ± 0.0e+00    1.465e-02 ± 1.1e-02 14648695838.387
+
+--- STEM conv1 per-channel (the headline: who drives the DEPTH input) ---
+             rgb (mean B,G,R)    depth (ch3)  depth/rgb
+DET                 7.365e-04      9.762e-06      0.013
+MASS                1.052e-03      1.041e-05      0.010
+
+KEY READINGS:
+  • MASS depth/rgb ratio = 0.010  (>1 ⇒ mass objective pushes depth harder than RGB at the input)
+  • mass/det in backbone_res = 1.466  (does mass reach the shared trunk, or only its head?)
+
+4.
+
+=== Gradient audit over 40 batches (mean RMS ± std) ===
+group                        DET grad              MASS grad  mass/det
+stem_conv1        7.711e-04 ± 7.5e-04    4.821e-04 ± 7.4e-04     0.625
+backbone_res      1.017e-03 ± 9.2e-04    1.040e-03 ± 1.6e-03     1.022
+fpn               3.373e-04 ± 2.3e-04    5.063e-04 ± 5.6e-04     1.501
+rpn_head          2.175e-03 ± 8.4e-04    0.000e+00 ± 0.0e+00     0.000
+box_head          7.404e-03 ± 1.5e-03    0.000e+00 ± 0.0e+00     0.000
+mask_head         1.799e-03 ± 1.8e-03    0.000e+00 ± 0.0e+00     0.000
+mass_head         0.000e+00 ± 0.0e+00    2.764e-02 ± 2.2e-02 27640407264.796
+
+--- STEM conv1 per-channel (the headline: who drives the DEPTH input) ---
+             rgb (mean B,G,R)    depth (ch3)  depth/rgb
+DET                 7.681e-04      5.192e-04      0.676
+MASS                4.950e-04      2.853e-04      0.576
+
+KEY READINGS:
+  • MASS depth/rgb ratio = 0.576  (>1 ⇒ mass objective pushes depth harder than RGB at the input)
+  • mass/det in backbone_res = 1.022  (does mass reach the shared trunk, or only its head?)
+
+---------------------
+WITH DIFFERENT INPUT MODES
+---------------------
+
+1.1 python3 gradient_audit.py --model_path output/s0713_zoom_drop05/model_final.pth --dataset_path ./data_s0713/ --split train --n_batches 40 --input_mode rgb_only
+
+Input sanity check | mode=rgb_only
+shape: (4, 720, 1280)
+channel means: [101.634, 113.389, 123.125, 915.043]
+channel mins:  [0.0, 0.0, 0.0, 915.043]
+channel maxs:  [255.0, 249.0, 255.0, 915.043]
+
+=== Gradient audit over 40 batches | input_mode=rgb_only | mean RMS ± std ===
+group                        DET grad              MASS grad  mass/det
+stem_conv1        5.870e-04 ± 4.3e-04    1.717e-04 ± 1.4e-04     0.292
+backbone_res      6.125e-04 ± 3.1e-04    2.616e-04 ± 2.2e-04     0.427
+fpn               2.643e-04 ± 9.8e-05    1.774e-04 ± 1.3e-04     0.671
+rpn_head          1.960e-03 ± 9.8e-04    0.000e+00 ± 0.0e+00     0.000
+box_head          7.266e-03 ± 2.0e-03    0.000e+00 ± 0.0e+00     0.000
+mask_head         1.953e-03 ± 1.3e-03    0.000e+00 ± 0.0e+00     0.000
+mass_head         0.000e+00 ± 0.0e+00    1.206e-02 ± 8.8e-03 12064008709.233
+
+--- STEM conv1 per-channel (the headline: who drives the DEPTH input) ---
+             rgb (mean B,G,R)    depth (ch3)  depth/rgb
+DET                 6.520e-04      0.000e+00      0.000
+MASS                1.877e-04      0.000e+00      0.000
+
+KEY READINGS:
+  • MASS depth/rgb ratio = 0.000  (>1 ⇒ mass objective pushes depth harder than RGB at the input)
+  • mass/det in backbone_res = 0.427  (does mass reach the shared trunk, or only its head?)
+
+1.2 
+
+Input sanity check | mode=real_rgbd
+shape: (4, 720, 1280)
+channel means: [100.291, 111.149, 118.622, 1037.873]
+channel mins:  [0.0, 0.0, 0.0, 434.0]
+channel maxs:  [247.0, 252.0, 255.0, 7270.0]
+
+=== Gradient audit over 40 batches | input_mode=real_rgbd | mean RMS ± std ===
+group                        DET grad              MASS grad  mass/det
+stem_conv1        4.212e-04 ± 1.7e-04    1.956e-04 ± 3.0e-04     0.464
+backbone_res      4.889e-04 ± 2.3e-04    2.794e-04 ± 3.0e-04     0.571
+fpn               2.312e-04 ± 7.9e-05    1.565e-04 ± 1.3e-04     0.677
+rpn_head          1.846e-03 ± 7.7e-04    0.000e+00 ± 0.0e+00     0.000
+box_head          7.480e-03 ± 1.8e-03    0.000e+00 ± 0.0e+00     0.000
+mask_head         1.236e-03 ± 7.3e-04    0.000e+00 ± 0.0e+00     0.000
+mass_head         0.000e+00 ± 0.0e+00    1.062e-02 ± 8.9e-03 10622871425.972
+
+--- STEM conv1 per-channel (the headline: who drives the DEPTH input) ---
+             rgb (mean B,G,R)    depth (ch3)  depth/rgb
+DET                 4.319e-04      2.404e-04      0.557
+MASS                2.069e-04      8.702e-05      0.421
+
+KEY READINGS:
+  • MASS depth/rgb ratio = 0.421  (>1 ⇒ mass objective pushes depth harder than RGB at the input)
+  • mass/det in backbone_res = 0.571  (does mass reach the shared trunk, or only its head?)
+
+1.3
+
+Input sanity check | mode=depth_only
+shape: (4, 720, 1280)
+channel means: [103.53, 116.28, 123.675, 1307.008]
+channel mins:  [103.53, 116.28, 123.675, 428.0]
+channel maxs:  [103.53, 116.28, 123.675, 11599.0]
+
+=== Gradient audit over 40 batches | input_mode=depth_only | mean RMS ± std ===
+group                        DET grad              MASS grad  mass/det
+stem_conv1        1.224e-03 ± 6.3e-04    3.322e-04 ± 3.3e-04     0.271
+backbone_res      1.342e-03 ± 7.0e-04    4.341e-04 ± 3.5e-04     0.323
+fpn               4.738e-04 ± 1.8e-04    1.930e-04 ± 1.3e-04     0.407
+rpn_head          2.055e-03 ± 9.9e-04    0.000e+00 ± 0.0e+00     0.000
+box_head          8.485e-03 ± 1.6e-03    0.000e+00 ± 0.0e+00     0.000
+mask_head         3.040e-03 ± 2.1e-03    0.000e+00 ± 0.0e+00     0.000
+mass_head         0.000e+00 ± 0.0e+00    1.306e-02 ± 9.7e-03 13063087449.966
+
+--- STEM conv1 per-channel (the headline: who drives the DEPTH input) ---
+             rgb (mean B,G,R)    depth (ch3)  depth/rgb
+DET                 0.000e+00      2.449e-03 2448639112.117
+MASS                0.000e+00      6.643e-04 664347359.452
+
+KEY READINGS:
+  • MASS depth/rgb ratio = 664347359.452  (>1 ⇒ mass objective pushes depth harder than RGB at the input)
+  • mass/det in backbone_res = 0.323  (does mass reach the shared trunk, or only its head?)
+
+2.1 python3 gradient_audit.py --model_path output/clean_baseline_v1_5conv_aug_fix_noLF_norm_stip/model_final.pth  --dataset_path ./data_s0713/ --split train --n_batches 40 --input_mode rgb_only
+
+Input sanity check | mode=rgb_only
+shape: (4, 720, 1280)
+channel means: [102.326, 112.442, 122.347, 915.043]
+channel mins:  [0.0, 0.0, 0.0, 915.043]
+channel maxs:  [250.0, 255.0, 255.0, 915.043]
+
+=== Gradient audit over 40 batches | input_mode=rgb_only | mean RMS ± std ===
+group                        DET grad              MASS grad  mass/det
+stem_conv1        1.855e-04 ± 7.9e-05    3.568e-05 ± 4.0e-05     0.192
+backbone_res      5.161e-04 ± 1.6e-04    1.654e-04 ± 2.2e-04     0.321
+fpn               1.560e-04 ± 4.2e-05    5.999e-05 ± 6.8e-05     0.385
+rpn_head          1.699e-03 ± 6.8e-04    0.000e+00 ± 0.0e+00     0.000
+box_head          6.487e-03 ± 1.5e-03    0.000e+00 ± 0.0e+00     0.000
+mask_head         7.465e-04 ± 4.6e-04    0.000e+00 ± 0.0e+00     0.000
+mass_head         0.000e+00 ± 0.0e+00    3.279e-03 ± 3.2e-03 3278730277.126
+
+--- STEM conv1 per-channel (the headline: who drives the DEPTH input) ---
+             rgb (mean B,G,R)    depth (ch3)  depth/rgb
+DET                 2.042e-04      0.000e+00      0.000
+MASS                4.044e-05      0.000e+00      0.000
+
+KEY READINGS:
+  • MASS depth/rgb ratio = 0.000  (>1 ⇒ mass objective pushes depth harder than RGB at the input)
+  • mass/det in backbone_res = 0.321  (does mass reach the shared trunk, or only its head?)
+
+2.2
+
+Input sanity check | mode=real_rgbd
+shape: (4, 720, 1280)
+channel means: [97.261, 110.102, 122.677, 996.367]
+channel mins:  [0.0, 0.0, 0.0, 437.0]
+channel maxs:  [249.0, 255.0, 255.0, 1750.0]
+
+=== Gradient audit over 40 batches | input_mode=real_rgbd | mean RMS ± std ===
+group                        DET grad              MASS grad  mass/det
+stem_conv1        2.131e-04 ± 1.2e-04    3.280e-05 ± 4.2e-05     0.154
+backbone_res      4.767e-04 ± 1.8e-04    1.271e-04 ± 1.5e-04     0.267
+fpn               1.469e-04 ± 3.6e-05    4.922e-05 ± 4.9e-05     0.335
+rpn_head          1.696e-03 ± 5.9e-04    0.000e+00 ± 0.0e+00     0.000
+box_head          6.091e-03 ± 2.0e-03    0.000e+00 ± 0.0e+00     0.000
+mask_head         6.766e-04 ± 4.4e-04    0.000e+00 ± 0.0e+00     0.000
+mass_head         0.000e+00 ± 0.0e+00    2.991e-03 ± 2.7e-03 2991317154.259
+
+--- STEM conv1 per-channel (the headline: who drives the DEPTH input) ---
+             rgb (mean B,G,R)    depth (ch3)  depth/rgb
+DET                 2.145e-04      1.529e-04      0.713
+MASS                3.433e-05      2.210e-05      0.644
+
+KEY READINGS:
+  • MASS depth/rgb ratio = 0.644  (>1 ⇒ mass objective pushes depth harder than RGB at the input)
+  • mass/det in backbone_res = 0.267  (does mass reach the shared trunk, or only its head?)
+
+2.3
+
+Input sanity check | mode=depth_only
+shape: (4, 720, 1280)
+channel means: [103.53, 116.28, 123.675, 939.78]
+channel mins:  [103.53, 116.28, 123.675, 422.0]
+channel maxs:  [103.53, 116.28, 123.675, 1701.0]
+
+=== Gradient audit over 40 batches | input_mode=depth_only | mean RMS ± std ===
+group                        DET grad              MASS grad  mass/det
+stem_conv1        2.607e-02 ± 2.8e-02    2.000e-03 ± 2.4e-03     0.077
+backbone_res      9.997e-02 ± 4.8e-02    1.151e-02 ± 5.9e-03     0.115
+fpn               2.695e-02 ± 8.9e-03    5.361e-03 ± 2.8e-03     0.199
+rpn_head          8.131e-03 ± 3.9e-03    0.000e+00 ± 0.0e+00     0.000
+box_head          1.966e-03 ± 1.0e-03    0.000e+00 ± 0.0e+00     0.000
+mask_head         2.108e-01 ± 9.0e-02    0.000e+00 ± 0.0e+00     0.000
+mass_head         0.000e+00 ± 0.0e+00    1.688e-01 ± 7.3e-02 168834976285.481
+
+--- STEM conv1 per-channel (the headline: who drives the DEPTH input) ---
+             rgb (mean B,G,R)    depth (ch3)  depth/rgb
+DET                 0.000e+00      5.215e-02 52148389804.643
+MASS                0.000e+00      4.000e-03 3999862457.022
+
+KEY READINGS:
+  • MASS depth/rgb ratio = 3999862457.022  (>1 ⇒ mass objective pushes depth harder than RGB at the input)
+  • mass/det in backbone_res = 0.115  (does mass reach the shared trunk, or only its head?)
+
+4.1 python3 gradient_audit.py --model_path output/clean_baseline_v1_5conv_aug_fix_noLF_norm_stip_drop05/model_final.pth  --dataset_path ./data_s0713/ --split train --n_batches 40 --input_mode rgb_only
+
+Input sanity check | mode=rgb_only
+shape: (4, 720, 1280)
+channel means: [103.579, 114.78, 124.32, 915.043]
+channel mins:  [0.0, 0.0, 0.0, 915.043]
+channel maxs:  [207.0, 240.0, 255.0, 915.043]
+
+=== Gradient audit over 40 batches | input_mode=rgb_only | mean RMS ± std ===
+group                        DET grad              MASS grad  mass/det
+stem_conv1        1.077e-03 ± 6.6e-04    2.119e-04 ± 2.3e-04     0.197
+backbone_res      1.142e-03 ± 8.2e-04    4.841e-04 ± 5.3e-04     0.424
+fpn               3.651e-04 ± 1.6e-04    2.196e-04 ± 2.0e-04     0.602
+rpn_head          2.004e-03 ± 1.0e-03    0.000e+00 ± 0.0e+00     0.000
+box_head          7.034e-03 ± 1.5e-03    0.000e+00 ± 0.0e+00     0.000
+mask_head         2.931e-03 ± 1.7e-03    0.000e+00 ± 0.0e+00     0.000
+mass_head         0.000e+00 ± 0.0e+00    1.148e-02 ± 9.1e-03 11476925920.480
+
+--- STEM conv1 per-channel (the headline: who drives the DEPTH input) ---
+             rgb (mean B,G,R)    depth (ch3)  depth/rgb
+DET                 1.176e-03      0.000e+00      0.000
+MASS                2.368e-04      0.000e+00      0.000
+
+KEY READINGS:
+  • MASS depth/rgb ratio = 0.000  (>1 ⇒ mass objective pushes depth harder than RGB at the input)
+  • mass/det in backbone_res = 0.424  (does mass reach the shared trunk, or only its head?)
+
+4.2 
+
+Input sanity check | mode=real_rgbd
+shape: (4, 720, 1280)
+channel means: [105.331, 116.993, 127.816, 1112.404]
+channel mins:  [0.0, 0.0, 0.0, 438.0]
+channel maxs:  [255.0, 255.0, 255.0, 6256.0]
+
+=== Gradient audit over 40 batches | input_mode=real_rgbd | mean RMS ± std ===
+group                        DET grad              MASS grad  mass/det
+stem_conv1        3.457e-04 ± 2.0e-04    9.255e-05 ± 9.9e-05     0.268
+backbone_res      4.834e-04 ± 1.9e-04    2.165e-04 ± 2.4e-04     0.448
+fpn               2.100e-04 ± 6.5e-05    1.217e-04 ± 9.3e-05     0.580
+rpn_head          1.780e-03 ± 6.2e-04    0.000e+00 ± 0.0e+00     0.000
+box_head          6.381e-03 ± 1.7e-03    0.000e+00 ± 0.0e+00     0.000
+mask_head         1.010e-03 ± 7.4e-04    0.000e+00 ± 0.0e+00     0.000
+mass_head         0.000e+00 ± 0.0e+00    7.225e-03 ± 5.6e-03 7224634322.485
+
+--- STEM conv1 per-channel (the headline: who drives the DEPTH input) ---
+             rgb (mean B,G,R)    depth (ch3)  depth/rgb
+DET                 3.494e-04      2.291e-04      0.656
+MASS                9.407e-05      5.204e-05      0.553
+
+KEY READINGS:
+  • MASS depth/rgb ratio = 0.553  (>1 ⇒ mass objective pushes depth harder than RGB at the input)
+  • mass/det in backbone_res = 0.448  (does mass reach the shared trunk, or only its head?)
+
+4.3
+
+Input sanity check | mode=depth_only
+shape: (4, 720, 1280)
+channel means: [103.53, 116.28, 123.675, 1068.659]
+channel mins:  [103.53, 116.28, 123.675, 427.0]
+channel maxs:  [103.53, 116.28, 123.675, 9384.0]
+
+=== Gradient audit over 40 batches | input_mode=depth_only | mean RMS ± std ===
+group                        DET grad              MASS grad  mass/det
+stem_conv1        1.104e-03 ± 1.2e-03    1.250e-04 ± 1.6e-04     0.113
+backbone_res      1.857e-03 ± 2.4e-03    2.682e-04 ± 3.3e-04     0.144
+fpn               4.921e-04 ± 3.7e-04    1.331e-04 ± 1.4e-04     0.271
+rpn_head          1.786e-03 ± 6.2e-04    0.000e+00 ± 0.0e+00     0.000
+box_head          7.813e-03 ± 2.1e-03    0.000e+00 ± 0.0e+00     0.000
+mask_head         2.916e-03 ± 2.8e-03    0.000e+00 ± 0.0e+00     0.000
+mass_head         0.000e+00 ± 0.0e+00    6.749e-03 ± 6.5e-03 6749222980.836
+
+--- STEM conv1 per-channel (the headline: who drives the DEPTH input) ---
+             rgb (mean B,G,R)    depth (ch3)  depth/rgb
+DET                 0.000e+00      2.209e-03 2208576592.966
+MASS                0.000e+00      2.499e-04 249932078.304
+
+KEY READINGS:
+  • MASS depth/rgb ratio = 249932078.304  (>1 ⇒ mass objective pushes depth harder than RGB at the input)
+  • mass/det in backbone_res = 0.144  (does mass reach the shared trunk, or only its head?)

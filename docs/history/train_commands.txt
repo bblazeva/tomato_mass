@@ -1,0 +1,125 @@
+# Training commands extracted from ~/.bash_history on 2026-10-22 (line number: command).
+# Runs were launched from ~/master_tomato/tomato_multitask_RGB-D. Later lines win when a name repeats.
+156:python  train.py  --num_iterations 10000 --learing_rate 0.0025 --weights './output/segm_stip_norm_mass/model_final.pth' --experiment_name "segm_stip_norm_mass1_aug" --dataset_path ./data/ 
+158:python  train.py  --num_iterations 10000 --learing_rate 0.0025 --weights './output/segm_stip_norm_mass/model_final.pth' --experiment_name "segm_stip_norm_mass1_aug" --dataset_path ./data/ 
+159:python  train.py  --num_iterations 10000 --learing_rate 0.00025 --weights './output/segm_stip_norm_mass/model_final.pth' --experiment_name "segm_stip_norm_mass1_aug" --dataset_path ./data/ 
+160:python  train.py  --num_iterations 10000 --learing_rate 0.0002 --weights './output/segm_stip_norm_mass/model_final.pth' --experiment_name "segm_stip_norm_mass1_aug" --dataset_path ./data/ 
+170:python  train.py  --num_iterations 10000 --learing_rate 0.0002 --weights './output/segm_stip_norm_mass/model_final.pth' --experiment_name "segm_stip_norm_mass_test" --dataset_path ./data/ 
+191:python  train.py  --num_iterations 10000 --learing_rate 0.0001 --mass_loss_weight=0 --weights './output/segm_stip_norm2/model_final.pth' --experiment_name "segm_stip_norm2_aug" --dataset_path ./data/ 
+192:python  train.py  --num_iterations 10000 --learing_rate 0.0001 --mass_loss_weight=0 --weights './output/segm_stip_norm2/model_final.pth' --experiment_name "segm_stip_norm2AUG" --dataset_path ./data/ 
+194:python  train.py  --num_iterations 18000 --learing_rate 0.0001 --mass_loss_weight=1 --freze_det=1 --weights './output/segm_stip_norm2AUG/model_final.pth' --experiment_name "segm_stip_norm2AUGmass" --dataset_path ./data/ 
+195:python  train.py  --num_iterations 18000 --learing_rate 0.0001 --mass_loss_weight=1 --freeze_det=1 --weights './output/segm_stip_norm2AUG/model_final.pth' --experiment_name "segm_stip_norm2AUGmass" --dataset_path ./data/ 
+254:python  train.py  --num_iterations 15000 --learing_rate 0.000025 --mass_loss_weight=0  --experiment_name "segm" --dataset_path ./data/ 
+255:python  train.py  --num_iterations 15000 --learing_rate 0.000025 --mass_loss_weight=0 --weights ./model/model_0002999.pth --experiment_name "segm" --dataset_path ./data/ 
+256:python  train.py  --num_iterations 15000 --learing_rate 0.000025 --mass_loss_weight=0 --experiment_name "segm" --dataset_path ./data/ 
+258:python  train.py  --num_iterations 15000 --learing_rate 0.000025 --mass_loss_weight=0 --experiment_name "segm" --dataset_path ./data/ 
+277:python  train.py  --num_iterations 15000 --learing_rate 0.000025 --mass_loss_weight=0 --experiment_name "segm" --dataset_path ./data/ 
+278:python  train.py  --num_iterations 15000 --learing_rate 0.00001 --mass_loss_weight=0 --experiment_name "segm" --dataset_path ./data/ 
+279:python  train.py  --num_iterations 15000 --learing_rate 0.00002 --mass_loss_weight=0 --experiment_name "segm" --dataset_path ./data/ 
+280:python  train.py  --num_iterations 15000 --learing_rate 0.000025 --mass_loss_weight=0 --experiment_name "segm" --dataset_path ./data/ 
+304:python  train.py  --num_iterations 10000 --learing_rate 0.0000025 --mass_loss_weight=0 --weights ./output/segm/model_0014499.pth--experiment_name "segm_tune" --dataset_path ./data/ 
+305:python  train.py  --num_iterations 10000 --learing_rate 0.00001 --mass_loss_weight=0 --weights ./output/segm/model_0014499.pth --experiment_name "segm_tune3" --dataset_path ./data/ 
+306:python  train.py  --num_iterations 10000 --learing_rate 0.00001 --mass_loss_weight=0 --weights ./output/segm/model_0014499.pth --experiment_name "segm_tune" --dataset_path ./data/ 
+307:python  train.py  --num_iterations 10000 --learing_rate 0.00025 --mass_loss_weight=0 --weights ./output/segm/model_0014499.pth --experiment_name "segm_tune2" --dataset_path ./data/ 
+308:python  train.py  --num_iterations 10000 --learing_rate 0.00001 --mass_loss_weight=0 --weights ./output/segm/model_0014499.pth --experiment_name "segm_tune3" --dataset_path ./data/ 
+309:python  train.py  --num_iterations 10000 --learing_rate 0.000005 --mass_loss_weight=0 --weights ./output/segm_tune3/model_final.pth --experiment_name "segm_tune3b" --dataset_path ./data/ 
+310:python  train.py  --num_iterations 10000 --learing_rate 0.00002 --mass_loss_weight=0 --weights ./output/segm_tune3/model_final.pth --experiment_name "segm_tune3c" --dataset_path ./data/ 
+314:python  train.py  --num_iterations 10000 --learing_rate 0.0001 --mass_loss_weight=1 --weights ./output/segm_tune3/model_final.pth --experiment_name "mass_stage3" --dataset_path ./data/ 
+315:python  train.py  --num_iterations 10000 --learing_rate 0.0001 --mass_loss_weight=1 --freeze_det=1 --weights ./output/segm_tune3/model_final.pth --experiment_name "mass_stage3a" --dataset_path ./data/ 
+318:python  train.py  --num_iterations 10000 --learing_rate 0.0001 --mass_loss_weight=1 --freeze_det=1 --weights ./output/segm_tune3/model_final.pth --experiment_name "mass_stage3aFix" --dataset_path ./data/ 
+320:python  train.py  --num_iterations 10000 --learing_rate 0.00002 --mass_loss_weight=2 --weights ./output/mass_stage3aFix/model_final.pth --experiment_name "mass_stage4" --dataset_path ./data/ 
+322:python  train.py  --num_iterations 10000 --learing_rate 0.000025 --mass_loss_weight=2 --weights ./output/mass_stage4/model_final.pth --experiment_name "mass_stage5" --dataset_path ./data/ 
+323:python  train.py  --num_iterations 10000 --learing_rate 0.000025 --mass_loss_weight=3 --weights ./output/mass_stage4/model_final.pth --experiment_name "mass_stage5" --dataset_path ./data/ 
+324:python  train.py  --num_iterations 10000 --learing_rate 0.000025 --mass_loss_weight=2 --weights ./output/mass_stage4/model_final.pth --experiment_name "mass_stage5" --dataset_path ./data/ 
+355:python  train.py  --num_iterations 10000 --learing_rate 0.000025 --mass_loss_weight=3 --weights ./output/mass_stage4/model_final.pth --experiment_name "mass_stage5" --dataset_path ./data/ 
+361:python  train.py  --num_iterations 15000 --learing_rate 0.000025 --mass_loss_weight=1 --freeze_det=1 --weights ./output/segm_tune3aFix/model_final.pth --experiment_name "mass_stage5" --dataset_path ./data/ 
+362:python  train.py  --num_iterations 15000 --learing_rate 0.000025 --mass_loss_weight=1 --freeze_det=1 --weights ./output/segm_tune3/model_final.pth --experiment_name "mass_stage3New" --dataset_path ./data/ 
+364:python  train.py  --num_iterations 15000 --learing_rate 0.000025 --mass_loss_weight=2 --weights ./output/mass_stage3New/model_0013499.pth --experiment_name "mass_stage4New" --dataset_path ./data/ 
+367:python  train.py  --num_iterations 15000 --learing_rate 0.000025 --mass_loss_weight=2 --weights ./output/mass_stage3New/model_0013499.pth --experiment_name "mass_stage4New" --dataset_path ./data/ 
+419:python  train.py  --num_iterations 15000 --learing_rate 0.000025 --mass_loss_weight=2 --weights ./output/mass_stage4/model_final.pth --experiment_name "try" --dataset_path ./data/ 
+425:python  train.py  --num_iterations 15000 --learing_rate 0.000025 --mass_loss_weight=2 --weights ./output/mass_stage4/model_final.pth --experiment_name "try" --dataset_path ./data/ 
+427:python  train.py  --num_iterations 15000 --learing_rate 0.000025 --mass_loss_weight=2 --weights ./output/mass_stage4/model_final.pth --experiment_name "try" --dataset_path ./data/ 
+454:python  train.py  --num_iterations 10000 --learing_rate 0.0001 --mass_loss_weight=1 --weights ./output/segm_tune3/model_final.pth --experiment_name "mass_stage3" --dataset_path ./data/ 
+460:python  train.py  --num_iterations 10000 --learing_rate 0.0001 --mass_loss_weight=1 --weights ./output/segm_tune3/model_final.pth --experiment_name "mass_stage3" --dataset_path ./data/ 
+461:python  train.py  --num_iterations 10000 --learing_rate 0.0001 --mass_loss_weight=1 --weights ./output/segm_tune/model_final.pth --experiment_name "mass_stage3" --dataset_path ./data/ 
+479:python  train.py  --num_iterations 10000 --learing_rate 0.0001 --mass_loss_weight=1 --weights ./output/segm_tune/model_final.pth --experiment_name "mass_stage3" --dataset_path ./data/ 
+480:python  train.py  --num_iterations 10000 --learing_rate 0.0001 --mass_loss_weight=1 --weights ./output/mass_stage4/model_final.pth --experiment_name "mass_stage3" --dataset_path ./data/ 
+481:python  train.py  --num_iterations 10000 --learing_rate 0.0001 --mass_loss_weight=1 --weights ./output/segm_tune/model_final.pth --experiment_name "mass_stage3" --dataset_path ./data/ 
+482:python  train.py  --num_iterations 10000 --learing_rate 0.00001 --mass_loss_weight=1 --weights ./output/segm_tune/model_final.pth --experiment_name "mass_check" --dataset_path ./data/ 
+556:python  train.py  --num_iterations 10000 --learing_rate 0.0001 --mass_loss_weight=1 --weights ./output/segm_tune/model_final.pth --experiment_name "mass_mm" --dataset_path ./data/ 
+568:python  train.py  --num_iterations 10000 --learing_rate 0.0001 --mass_loss_weight=1 --weights ./output/segm_tune/model_final.pth --experiment_name "mass_mm2" --dataset_path ./data/ 
+590:python  train.py  --num_iterations 15000 --learing_rate 0.0001 --mass_loss_weight=1 --weights ./output/segm_tune/model_final.pth --experiment_name "mass_drop" --dataset_path ./data/ 
+593:python  train.py  --num_iterations 15000 --learing_rate 0.0001 --mass_loss_weight=1 --weights ./output/segm_tune/model_final.pth --experiment_name "mass_drop_box" --dataset_path ./data/ 
+605:python  train.py  --num_iterations 15000 --learing_rate 0.0001 --mass_loss_weight=1 --weights ./output/segm_tune/model_final.pth --experiment_name "mass_drop_box" --dataset_path ./data/ 
+607:python  train.py  --num_iterations 15000 --learing_rate 0.0001 --mass_loss_weight=1 --weights ./output/segm_tune/model_final.pth --experiment_name "mass_drop_box" --dataset_path ./data/ 
+627:python  train.py  --num_iterations 10000 --learing_rate 0.0001 --mass_loss_weight=1 --weights ./output/segm_tune/model_final.pth --experiment_name "mass_proxy" --dataset_path ./data/ 
+638:python  train.py  --num_iterations 10000 --learing_rate 0.0001 --mass_loss_weight=1 --weights ./output/segm_tune/model_final.pth --experiment_name "mass_proxy_area" --dataset_path ./data/ 
+650:python  train.py  --num_iterations 10000 --learing_rate 0.0001 --mass_loss_weight=0 --experiment_name "depth_only" --dataset_path ./data/ 
+652:python  train.py  --num_iterations 15000 --learing_rate 0.00025 --mass_loss_weight=0 --experiment_name "depth_only_2" --dataset_path ./data/ 
+659:python  train_new.py  --num_iterations 15000 --learing_rate 0.00025 --mass_loss_weight=0 --experiment_name "marty" --dataset_path ./data/ 
+660:python train_new.py --num_iterations 15000 --learning_rate 0.00025 --mass_loss_weight 0 --experiment_name marty --dataset_path ./data/
+661:python train_new.py     --experiment_name marty     --dataset_path ./data/     --num_iterations 15000     --learning_rate 0.00025     --mass_loss_weight 0 \
+662:python train_new.py     --experiment_name marty     --dataset_path ./data/     --num_iterations 15000     --learning_rate 0.00025     --mass_loss_weight 0 --batch_size 2 --init_depth_weights
+663:python train_new.py     --experiment_name marty     --dataset_path ./data/     --num_iterations 15000     --learning_rate 0.00025     --mass_loss_weight 0 --batch_size 2 --weights ./mask_rcnn_R50_FPN_3x_RGBD.pth 
+681:python train_new.py     --experiment_name joint_train  --dataset_path ./data/     --num_iterations 20000 --learning_rate 0.00025 --batch_size 2 --init_depth_weights --rgb_dropout 0.3 
+682:python train_new.py     --experiment_name marty     --dataset_path ./data/     --num_iterations 15000     --learning_rate 0.00025     --mass_loss_weight 0 --batch_size 2 --weights ./mask_rcnn_R50_FPN_3x_RGBD.pth 
+683:python train_new.py     --experiment_name joint_train  --dataset_path ./data/     --num_iterations 20000 --learning_rate 0.00025 --batch_size 2 --init_depth_weights --rgb_dropout 0.3 --mass_loss_schedule "0:0,3000:0.5,5000:1.0,12000:2.0" 
+684:python train_new.py     --experiment_name joint_train  --dataset_path ./data/     --num_iterations 20000 --learning_rate 0.00025 --batch_size 2 --init_depth_weights --rgb_dropout 0.3 --mass_loss_schedule "0:0,3000:0.5,5000:1.0" 
+686:python train_new.py     --experiment_name joint_train2  --dataset_path ./data/     --num_iterations 20000 --learning_rate 0.00025 --batch_size 2 --init_depth_weights --rgb_dropout 0.3 --mass_loss_schedule "0:0,3000:0.5,5000:1.0" 
+702:python train_new.py --num_iterations 15000 --mass_loss_weight 1.0 --rgb_dropout 0.0 --experiment_name clean_baseline_v1
+703:python train_new.py --num_iterations 15000 --mass_loss_weight 1.0 --rgb_dropout 0.0 --experiment_name clean_baseline_v1 --dataset_path ./data/
+705:python train_new.py --num_iterations 15000 --mass_loss_weight 1.0 --rgb_dropout 0.0 --experiment_name clean_baseline_v1 --dataset_path ./data/
+708:python train_new.py --num_iterations 15000 --mass_loss_weight 1.0 --rgb_dropout 0.0 --experiment_name clean_baseline_v1 --dataset_path ./data/
+746:python train_new.py --num_iterations 15000 --mass_loss_weight 1.0 --rgb_dropout 0.0 --experiment_name clean_baseline_v1 --dataset_path ./data/
+748:python train_new.py --num_iterations 15000 --mass_loss_weight 1.0 --rgb_dropout 0.0 --experiment_name clean_baseline_v1 --dataset_path ./data/
+750:python train_new.py --num_iterations 15000 --mass_loss_weight 1.0 --rgb_dropout 0.0 --experiment_name clean_baseline_v1 --dataset_path ./data/
+830:python train_new.py --num_iterations 15000 --mass_loss_weight 1.0 --rgb_dropout 0.0 --experiment_name clean_baseline_v1 --dataset_path ./data/
+833:python train_new.py --num_iterations 15000 --mass_loss_weight 1.0 --rgb_dropout 0.0 --experiment_name clean_baseline_v1 --dataset_path ./data/
+836:python train_new.py --num_iterations 15000 --mass_loss_weight 1.0 --rgb_dropout 0.0 --experiment_name clean_baseline_v1 --dataset_path ./data/
+839:python train_new.py --num_iterations 15000 --mass_loss_weight 1.0 --rgb_dropout 0.0 --experiment_name clean_baseline_v1 --dataset_path ./data/
+841:python train_new.py --num_iterations 15000 --mass_loss_weight 1.0 --rgb_dropout 0.0 --experiment_name clean_baseline_v1 --dataset_path ./data/
+845:python train_new.py --num_iterations 15000 --mass_loss_weight 1.0 --rgb_dropout 0.0 --experiment_name clean_baseline_v1 --dataset_path ./data/
+864:python train_new.py --num_iterations 15000 --mass_loss_weight 1.0 --rgb_dropout 0.0 --experiment_name clean_baseline_v1 --dataset_path ./data/
+884:python train_new.py --num_iterations 15000 --mass_loss_weight 1.0 --rgb_dropout 0.0 --experiment_name clean_baseline_v1 --dataset_path ./data/
+902:python train_new.py --num_iterations 15000 --mass_loss_weight 1.0 --rgb_dropout 0.0 --experiment_name clean_baseline_v1 --dataset_path ./data/
+908:python train_new.py --num_iterations 15000 --mass_loss_weight 1.0 --rgb_dropout 0.0 --experiment_name clean_baseline_v1 --dataset_path ./data/
+910:python train_new.py --num_iterations 15000 --mass_loss_weight 1.0 --rgb_dropout 0.0 --experiment_name clean_baseline_v1 --dataset_path ./data/
+918:python train_new.py --num_iterations 15000 --mass_loss_weight 1.0 --rgb_dropout 0.0 --experiment_name clean_baseline_v1 --dataset_path ./data/
+929:python train.py --num_iterations 10000 --learing_rate 0.0001     --mass_loss_weight=1 --freeze_det=1     --weights ./output/depth_only_2/model_final.pth     --experiment_name "depth_only_mass" \
+930:python train.py --num_iterations 10000 --learing_rate 0.0001 --mass_loss_weight=1 --freeze_det=1 --weights ./output/depth_only_2/model_final.pth --experiment_name "depth_only_mass" --dataset_path ./data/
+939:python train_new.py --num_iterations 15000 --mass_loss_weight 1.0 --rgb_dropout 0.0 --experiment_name clean_baseline_v1_LF --dataset_path ./data/
+994:python train_new.py --num_iterations 15000 --mass_loss_weight 1.0 --rgb_dropout 0.0 --experiment_name clean_baseline_v1_bigMLP_noLF --dataset_path ./data/
+1003:python train_new.py --num_iterations 15000 --mass_loss_weight 1.0 --rgb_dropout 0.0 --experiment_name clean_baseline_v1LF_nodeconv --dataset_path ./data/
+1033:python train_new.py --num_iterations 15000 --mass_loss_weight 1.0 --rgb_dropout 0.0 --experiment_name clean_baseline_v1LF_5conv --dataset_path ./data/
+1034:python train_new.py --num_iterations 15000 --mass_loss_weight 1.0 --rgb_dropout 0.0 --experiment_name clean_baseline_v1LF_5conv_bias --dataset_path ./data/
+1037:python train_new.py --num_iterations 15000 --mass_loss_weight 1.0 --rgb_dropout 0.0 --experiment_name clean_baseline_v1LF_5conv_bias_7x7 --dataset_path ./data/
+1039:python train_new.py --num_iterations 15000 --mass_loss_weight 1.0 --rgb_dropout 0.0 --experiment_name clean_baseline_v1LF_5conv_bias_7x7 --dataset_path ./data/
+1040:python train_new.py --num_iterations 15000 --mass_loss_weight 1.0 --rgb_dropout 0.0 --experiment_name clean_baseline_v1LF_5conv_bias_7x7_3136 --dataset_path ./data/
+1063:python train_new.py --num_iterations 15000 --mass_loss_weight 1.0 --rgb_dropout 0.0 --experiment_name clean_baseline_v1LF_5conv_bias_aug_fix --dataset_path ./data/
+1100:python train_new.py --num_iterations 15000 --mass_loss_weight 1.0 --rgb_dropout 0.0 --experiment_name clean_baseline_v1LF_5conv_aug_fix --dataset_path ./data/
+1101:python train_new.py --num_iterations 15000 --mass_loss_weight 1.0 --rgb_dropout 0.3 --experiment_name clean_baseline_v1LF_5conv_aug_fix --dataset_path ./data/
+1102:python train_new.py --num_iterations 15000 --mass_loss_weight 1.0 --rgb_dropout 0.3 --experiment_name clean_baseline_v1LF_5conv_aug_fix_drop_03 --dataset_path ./data/
+1105:python train_new.py --num_iterations 15000 --mass_loss_weight 1.0 --rgb_dropout 0.0 --experiment_name clean_baseline_v1_5conv_aug_fix --dataset_path ./data/
+1125:python train_new.py --num_iterations 15000 --mass_loss_weight 1.0 --experiment_name clean_baseline_v1_5conv_aug_fix_DEPTH --dataset_path ./data/
+1126:python train.py --num_iterations 15000 --mass_loss_weight 1.0 --experiment_name clean_baseline_v1_5conv_aug_fix_DEPTH --dataset_path ./data/
+1173:python train.py --num_iterations 15000 --mass_loss_weight 1.0 --experiment_name clean_baseline_v1_5conv_aug_fix_DEPTH_noLF --dataset_path ./data/
+1174:python train.py --num_iterations 15000 --mass_loss_weight 1.0 --experiment_name clean_baseline_v1_5conv_aug_fix_DEPTH_noLF_norm --dataset_path ./data/
+1210:python train.py --num_iterations 15000 --mass_loss_weight 1.0 --experiment_name clean_baseline_v1_5conv_aug_fix_DEPTH_noLF_norm_0 --dataset_path ./data/
+1212:python train.py --num_iterations 15000 --mass_loss_weight 1.0 --experiment_name clean_baseline_v1_5conv_aug_fix_DEPTH_noLF_0 --dataset_path ./data/
+1277:python train_new.py --num_iterations 15000 --mass_loss_weight 1.0  --experiment_name clean_baseline_v1_5conv_aug_fix_noLF_norm --dataset_path ./data/
+1279:python train_new.py --num_iterations 15000 --mass_loss_weight 1.0  --experiment_name clean_baseline_v1_5conv_aug_fix_noLF_norm --dataset_path ./data_s0713/
+1280:python train_new.py --num_iterations 15000 --mass_loss_weight 1.0  --experiment_name clean_baseline_v1_5conv_aug_fix_noLF_norm_stip --dataset_path ./data_s0713/
+1282:python train_new.py --num_iterations 15000 --mass_loss_weight 1.0  --experiment_name clean_baseline_v1_5conv_aug_fix_noLF_norm_stip --dataset_path ./data_s0713/
+1294:python train_new.py --num_iterations 15000 --mass_loss_weight 1.0 --rgb_dropout 0.5 --experiment_name clean_baseline_v1_5conv_aug_fix_noLF_norm_stip_drop05 --dataset_path ./data_s0713/
+1319:python train_new.py --num_iterations 15000 --mass_loss_weight 1.0 --rgb_dropout 0.5 --experiment_name clean_baseline_v1_5conv_aug_fix_noLF_stip_drop05 --dataset_path ./data_s0713/
+1329:python train_new_clean.py --dataset_path ./data_s0713/ --experiment_name s0713_zoom_drop05 --num_iterations 15000 --rgb_dropout 0.5 --zoom_prob 0.5 --zoom_min 0.7 --zoom_max 1.3
+1335:python train_new_clean.py --dataset_path ./data_s0713/ --experiment_name s0713_zoom_drop05_color_aug --num_iterations 15000 --rgb_dropout 0.5 --color_aug light --zoom_prob 0.5 --zoom_min 0.7 --zoom_max 1.3
+1363:python train_new_clean.py --dataset_path ./data_s0713/ --experiment_name s0713_zoom_drop05_LF --num_iterations 15000 --rgb_dropout 0.5 --zoom_prob 0.5 --zoom_min 0.7 --zoom_max 1.3
+1427:python train_new_clean.py --dataset_path ./data_s0713/ --experiment_name s0713_zoom_drop05_mass_loss_weight2 --num_iterations 15000 --rgb_dropout 0.5 --zoom_prob 0.5 --zoom_min 0.7 --zoom_max 1.3 --mass_loss_weight 2
+1428:python train_new_clean.py --dataset_path ./data_s0713/ --experiment_name s0713_zoom_drop05_mass_loss_weight5 --num_iterations 15000 --rgb_dropout 0.5 --zoom_prob 0.5 --zoom_min 0.7 --zoom_max 1.3 --mass_loss_weight 5
+1466:python train_new_clean.py --dataset_path ./data_s0713/ --experiment_name s0713_zoom_drop05_mass_loss_schedule --num_iterations 15000 --rgb_dropout 0.5 --zoom_prob 0.5 --zoom_min 0.7 --zoom_max 1.3 --mass_loss_schedule "0:0.5,2500:1,5000:2.0"
+1471:python train_new_clean.py --dataset_path ./data_s0713/ --experiment_name s0713_zoom06_drop07 --num_iterations 15000 --rgb_dropout 0.7 --zoom_prob 0.6 --zoom_min 0.8 --zoom_max 1.4
+1486:python train_new_clean.py --dataset_path ./data_s0713/ --experiment_name s0713_zoom_drop065 --num_iterations 15000 --rgb_dropout 0.65 --zoom_prob 0.5 --zoom_min 0.7 --zoom_max 1.3
+1487:python train_new_clean.py --dataset_path ./data_s0713/ --experiment_name s0713_zoom_drop05_1 --num_iterations 15000 --rgb_dropout 0.5 --zoom_prob 0.5 --zoom_min 0.7 --zoom_max 1.3
+1498:python train_new_clean.py --dataset_path ./data_s0713/ --experiment_name s0713_zoom_drop_04_01 --num_iterations 10000 --rgb_dropout 0.4 --depth_dropout 0.1 --zoom_prob 0.5 --zoom_min 0.7 --zoom_max 1.3
+1501:python train_new_clean.py --dataset_path ./data_s0713/ --experiment_name s0713_zoom_drop_05_00 --num_iterations 10000 --rgb_dropout 0.5  --zoom_prob 0.5 --zoom_min 0.7 --zoom_max 1.3
