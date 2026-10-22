@@ -13,8 +13,9 @@ reproduces val MAE 0.066 kg / MAPE 10.3% frame-for-frame (190/190 identical).
 | What | Where |
 |---|---|
 | To-do list / plan | `TODO.md` |
-| Every training run (settings, results, checkpoint) | `runs.csv` *(being backfilled)* |
-| What we have learned, with evidence | `docs/FINDINGS.md` *(being written)* |
+| Every training run (settings, results, checkpoint) | `runs.csv` |
+| What we have learned, with evidence | `docs/FINDINGS.md` |
+| Gradient audit Oct 2026 (tables, figures, per-image data) | `results/audit_2026-10/` |
 | Progress updates for the supervisor | `docs/progress/` |
 | Old notes (AGENTS.md, plans, reports) | `docs/history/` |
 | Old inference results (`results_*.txt`) | `results/inference_legacy/` |

@@ -32,7 +32,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 
-OUT_DIR = "output/audit_unified"
+OUT_DIR = "results/audit_2026-10"
 
 # (short id, label, audit dir, metrics.json for val MAPE)
 RUNS = [
@@ -42,7 +42,7 @@ RUNS = [
      "output/clean_baseline_v1_5conv_aug_fix_noLF_norm_stip_drop05/metrics.json"),
     ("5", "5    + zoom  (best)", "output/audit_unified/5_zoom_drop05",
      "output/s0713_zoom_drop05/metrics.json"),
-    ("5r", "5r   replicate, 10k it", "output/audit_unified/5r_drop_05_00",
+    ("7c", "7c   RGB-drop 0.5, 10k it (= 5 setup)", "output/audit_unified/5r_drop_05_00",
      "output/s0713_zoom_drop_05_00/metrics.json"),
     ("5c", "5c   + colour aug", "output/audit_unified/5c_color_aug",
      "output/s0713_zoom_drop05_color_aug/metrics.json"),
@@ -55,9 +55,9 @@ RUNS = [
     ("7b", "7b   RGB-drop 0.4 + depth-drop 0.1", "output/s0713_zoom_drop_04_01/grad_audit",
      "output/s0713_zoom_drop_04_01/metrics.json"),
 ]
-TRAINING_RUN = "5r"
+TRAINING_RUN = "7c"
 # The training figure uses the full-val (190 image) audit with per-image output, for error bands.
-TRAINING_AUDIT_FULL = "output/audit_val190/5r_drop_05_00"
+TRAINING_AUDIT_FULL = "results/audit_2026-10/val190/7c_drop_05_00"
 MODES = ["real_rgbd", "rgb_only", "depth_only"]
 MODE_LABEL = {"real_rgbd": "RGB-D", "rgb_only": "RGB only", "depth_only": "depth only"}
 
