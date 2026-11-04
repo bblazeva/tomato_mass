@@ -1,33 +1,9 @@
 # Tomato cluster mass estimation from RGB-D
 
-Master's thesis project. The goal is to estimate the mass of a tomato cluster from one RGB-D image,
-and the research question is **whether and how depth contributes to that estimate**.
-
-## Method
-
 A Mask R-CNN (ResNet-50 + FPN, Detectron2) takes a 4-channel input (BGR + depth in mm), detects and
 segments the cluster, and an added mass head predicts `log(mass_kg)`. Training uses a depth-consistent
 zoom augmentation (apparent size × s, depth × 1/s) and input modality dropout, which replaces RGB with
 its mean for a share of the training images.
-
-## Main results so far
-
-Model 5 (RGB dropout 0.5 + zoom), mean absolute percentage error (MAPE). Each row compares the three
-inputs on the same frames, those where all three produce a detection.
-
-| Test data | RGB-D | RGB only | Depth only | Depth-only frames with no detection |
-|---|---|---|---|---|
-| Same session, unseen clusters (188 frames) | 10.4% | 10.8% | 11.0% | 2 / 190 |
-| Different session (387 frames) | 55.7% | 55.3% | **35.8%** | 29 / 416 |
-
-- Within a session, RGB and depth are each sufficient, and combining them adds little.
-- Across sessions, depth alone is clearly more robust, while RGB-D behaves like RGB only: the model
-  follows RGB whenever it is present.
-- Limitations: the same training command gives 10–18% validation MAPE from run to run, and the
-  validation set has only 4 clusters, so small differences between single runs are not meaningful.
-
-The full findings, with evidence and confidence for each claim, are in
-[docs/FINDINGS.md](docs/FINDINGS.md). Every training run is listed in [runs.csv](runs.csv).
 
 ## Repository layout
 

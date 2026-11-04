@@ -1,6 +1,6 @@
 /output
 /data
-/data_s0713
+./data_s0713
 /weights/
 
 *.pth
