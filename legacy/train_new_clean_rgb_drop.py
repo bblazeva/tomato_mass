@@ -31,7 +31,7 @@ from detectron2.evaluation import COCOEvaluator, DatasetEvaluators
 from torch.utils.data import WeightedRandomSampler, Sampler
 
 import utils_detection
-from mass_evaluator_mean import MassEvaluator
+from mass_evaluator import MassEvaluator
 
 
 DEPTH_MEAN_MM = 915.043

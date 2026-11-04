@@ -23,9 +23,9 @@ import matplotlib.pyplot as plt
 DEPTH_GLOBAL_MIN_MM = 200.0
 DEPTH_GLOBAL_MAX_MM = 2000.0
 
-DATA_DIR     = Path("/home/blagicab/master_tomato/tomato_multitask_RGB-D/data")
+DATA_DIR     = Path(__file__).resolve().parent.parent / "data"
 IMAGES_DIR   = DATA_DIR / "images"
-DEPTH_DIR    = DATA_DIR / "iter_4_depth_matched"
+DEPTH_DIR    = DATA_DIR / "depth"
 FEATURES_CSV = Path("/home/blagicab/master_tomato/analysis/features.csv")
 OUT_DIR      = Path("/home/blagicab/master_tomato/analysis/depth_viz")
 N_PER_SESSION = 4   # how many examples per capture session

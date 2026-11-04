@@ -1,0 +1,242 @@
+{
+  "model": "output/s0713_zoom_drop05/model_final.pth",
+  "name": "s0713_zoom_drop05",
+  "split": "val",
+  "dataset_path": "./data_s0713/",
+  "conf_thr": 0.7,
+  "pixel_mean": [
+    103.53,
+    116.28,
+    123.675,
+    915.043
+  ],
+  "pixel_std": [
+    57.375,
+    57.12,
+    58.395,
+    411.683
+  ],
+  "pixel_norm_source": "defaults (train.py)",
+  "evaluated_at": "2026-10-22T18:54:35",
+  "command": "python evaluate.py --run s0713_zoom_drop05 --splits val test_0328 --save_viz 5",
+  "modes": {
+    "rgbd": {
+      "n_images": 190,
+      "n_with_prediction": 190,
+      "n_no_detection": 0,
+      "mae_kg": 0.0655578947368421,
+      "mape_pct": 10.335038990120445,
+      "bias_kg": 0.04853684210526316,
+      "worst_abs_err_kg": 0.27,
+      "r2": 0.886716319160079,
+      "distance_mm_range": [
+        348.7,
+        1363.3
+      ]
+    },
+    "rgb_only": {
+      "n_images": 190,
+      "n_with_prediction": 190,
+      "n_no_detection": 0,
+      "mae_kg": 0.06434736842105263,
+      "mape_pct": 10.85299440821632,
+      "bias_kg": 0.04242105263157895,
+      "worst_abs_err_kg": 0.368,
+      "r2": 0.8936672826255476,
+      "distance_mm_range": [
+        349.2,
+        1363.2
+      ]
+    },
+    "depth_only": {
+      "n_images": 190,
+      "n_with_prediction": 188,
+      "n_no_detection": 2,
+      "mae_kg": 0.0649468085106383,
+      "mape_pct": 10.95393411201591,
+      "bias_kg": 0.040180851063829785,
+      "worst_abs_err_kg": 0.311,
+      "r2": 0.8820675224371046,
+      "distance_mm_range": [
+        348.3,
+        1288.6
+      ]
+    }
+  },
+  "clusters": {
+    "rgbd": {
+      "0.208": {
+        "n_images": 45,
+        "n_with_prediction": 45,
+        "n_no_detection": 0,
+        "mae_kg": 0.015244444444444446,
+        "mape_pct": 7.329059829059828,
+        "bias_kg": 0.002177777777777777,
+        "worst_abs_err_kg": 0.092,
+        "r2": null,
+        "distance_mm_range": [
+          350.7,
+          813.2
+        ]
+      },
+      "0.490": {
+        "n_images": 45,
+        "n_with_prediction": 45,
+        "n_no_detection": 0,
+        "mae_kg": 0.06573333333333334,
+        "mape_pct": 13.41496598639456,
+        "bias_kg": 0.036888888888888895,
+        "worst_abs_err_kg": 0.27,
+        "r2": null,
+        "distance_mm_range": [
+          384.2,
+          1363.3
+        ]
+      },
+      "0.670": {
+        "n_images": 46,
+        "n_with_prediction": 46,
+        "n_no_detection": 0,
+        "mae_kg": 0.04702173913043478,
+        "mape_pct": 7.0181700194678776,
+        "bias_kg": 0.04080434782608696,
+        "worst_abs_err_kg": 0.15,
+        "r2": null,
+        "distance_mm_range": [
+          348.7,
+          934.0
+        ]
+      },
+      "0.940": {
+        "n_images": 54,
+        "n_with_prediction": 54,
+        "n_no_detection": 0,
+        "mae_kg": 0.12312962962962963,
+        "mape_pct": 13.098896769109537,
+        "bias_kg": 0.10346296296296299,
+        "worst_abs_err_kg": 0.261,
+        "r2": null,
+        "distance_mm_range": [
+          397.8,
+          957.3
+        ]
+      }
+    },
+    "rgb_only": {
+      "0.208": {
+        "n_images": 45,
+        "n_with_prediction": 45,
+        "n_no_detection": 0,
+        "mae_kg": 0.023,
+        "mape_pct": 11.057692307692307,
+        "bias_kg": 0.003666666666666665,
+        "worst_abs_err_kg": 0.1,
+        "r2": null,
+        "distance_mm_range": [
+          350.5,
+          813.1
+        ]
+      },
+      "0.490": {
+        "n_images": 45,
+        "n_with_prediction": 45,
+        "n_no_detection": 0,
+        "mae_kg": 0.06457777777777779,
+        "mape_pct": 13.179138321995465,
+        "bias_kg": 0.028622222222222223,
+        "worst_abs_err_kg": 0.243,
+        "r2": null,
+        "distance_mm_range": [
+          385.4,
+          1363.2
+        ]
+      },
+      "0.670": {
+        "n_images": 46,
+        "n_with_prediction": 46,
+        "n_no_detection": 0,
+        "mae_kg": 0.04565217391304348,
+        "mape_pct": 6.81375730045425,
+        "bias_kg": 0.03921739130434782,
+        "worst_abs_err_kg": 0.121,
+        "r2": null,
+        "distance_mm_range": [
+          349.2,
+          933.5
+        ]
+      },
+      "0.940": {
+        "n_images": 54,
+        "n_with_prediction": 54,
+        "n_no_detection": 0,
+        "mae_kg": 0.11453703703703703,
+        "mape_pct": 12.18479117415288,
+        "bias_kg": 0.08894444444444444,
+        "worst_abs_err_kg": 0.368,
+        "r2": null,
+        "distance_mm_range": [
+          397.9,
+          957.9
+        ]
+      }
+    },
+    "depth_only": {
+      "0.208": {
+        "n_images": 45,
+        "n_with_prediction": 44,
+        "n_no_detection": 1,
+        "mae_kg": 0.019386363636363636,
+        "mape_pct": 9.320367132867133,
+        "bias_kg": 0.016204545454545458,
+        "worst_abs_err_kg": 0.095,
+        "r2": null,
+        "distance_mm_range": [
+          350.9,
+          812.9
+        ]
+      },
+      "0.490": {
+        "n_images": 45,
+        "n_with_prediction": 44,
+        "n_no_detection": 1,
+        "mae_kg": 0.07797727272727271,
+        "mape_pct": 15.913729128014841,
+        "bias_kg": 0.06543181818181819,
+        "worst_abs_err_kg": 0.311,
+        "r2": null,
+        "distance_mm_range": [
+          391.3,
+          1288.6
+        ]
+      },
+      "0.670": {
+        "n_images": 46,
+        "n_with_prediction": 46,
+        "n_no_detection": 0,
+        "mae_kg": 0.05367391304347826,
+        "mape_pct": 8.011031797534068,
+        "bias_kg": 0.02284782608695652,
+        "worst_abs_err_kg": 0.183,
+        "r2": null,
+        "distance_mm_range": [
+          348.3,
+          934.5
+        ]
+      },
+      "0.940": {
+        "n_images": 54,
+        "n_with_prediction": 54,
+        "n_no_detection": 0,
+        "mae_kg": 0.10105555555555558,
+        "mape_pct": 10.750591016548466,
+        "bias_kg": 0.05390740740740742,
+        "worst_abs_err_kg": 0.28,
+        "r2": null,
+        "distance_mm_range": [
+          398.0,
+          953.0
+        ]
+      }
+    }
+  }
+}

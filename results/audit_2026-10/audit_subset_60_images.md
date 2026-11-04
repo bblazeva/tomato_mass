@@ -1,6 +1,6 @@
 # The 60 images used in the unified gradient audit
 
-Selected by `gradient_audit_sweep2.py` (`select_stratified`, `--split val --n_batches 60 --seed 0`).
+Selected by `audit/gradient_audit_sweep2.py` (`select_stratified`, `--split val --n_batches 60 --seed 0`).
 Identical for every audited model (checked: same file list in all `gradient_audit_subset.csv`).
 Full list with per-image capture time and distance: `audit_subset_60_images.csv`.
 

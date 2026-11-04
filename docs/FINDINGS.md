@@ -35,20 +35,82 @@ tomato clusters. Val MAPE moves 3–6 pp between checkpoints of one run (`runs.c
 
 **B1. In-domain, RGB and depth are each sufficient and redundant.** With RGB dropout during training,
 RGB-D ≈ RGB-only ≈ depth-only. Model 5: **10.3 / 10.9 / 11.0%**; model 4.2: 14.4 / 14.5 / 14.8%. *Solid.*
-Evidence: `results/inference_legacy/results_stip_data_s0713_drop05_zoom.txt`, `..._drop05.txt`.
+Depth-only misses only 2/190 frames (both unusually far: a 208 g frame at 725 mm, the rest of that
+cluster is at 350–450 mm, and a 490 g frame at 1,363 mm), so on the 188 frames where all three predict
+the numbers are the same: **10.4 / 10.8 / 11.0%**. Per cluster all three modes are within 1–4 pp
+(7–16%), inside run-to-run noise (A4). All modes overestimate, more for heavier clusters (940 g: +54 to +103 g).
+Evidence: `results/inference_legacy/results_stip_data_s0713_drop05_zoom.txt`, `..._drop05.txt`;
+`results/eval/s0713_zoom_drop05/val/per_image.csv`.
 
 **B2. Cross-session, depth is far more robust, but RGB-D behaves like RGB-only.**
 
-| Model | RGB-D | RGB only | depth only |
-|---|---|---|---|
-| 4.2 | 70.7 | 70.1 | 37.5 |
-| 5 | 66.8 | 65.5 | 35.8 |
-| 5c (colour aug) | 58.7 | 55.5 | **33.9** |
-| 6b | 65.7 | 62.3 | 35.5 |
+| Model | RGB-D | RGB only | depth only | depth-only misses |
+|---|---|---|---|---|
+| 4.2 | 70.7 | 70.1 | 37.5 | ? |
+| 5 | 66.8 | 65.5 | 35.8 | 29 |
+| 5c (colour aug) | 58.7 | 55.5 | **33.9** | ? |
+| 6b | 65.7 | 62.3 | 35.5 | ? |
+| 6d (mass-weight schedule) | 63.4 | 62.3 | 44.2 | 26 |
+| 7a (RGB-drop 0.65) | **44.8** | **43.8** | 30.8 | **63** |
+| 7b (RGB-drop 0.4 + depth-drop 0.1) | 67.1 | 67.5 | 40.3 | 53 |
+| 7c (RGB-drop 0.5, 10k = model-5 setup) | 62.4 | 61.8 | 42.5 | 15 |
 
-When both inputs are present the model follows RGB and inherits its failure. Colour augmentation
-helps cross-session (66.8 → 58.7) but hurts in-domain (10.3 → 14.6). *Solid* (4 models).
-Evidence: `results/inference_legacy/results_cross_0328*.txt`.
+(MAPE %, each mode on the frames it detects; 416 frames. The "?" rows were evaluated with the old
+script, which did not count misses.) When both inputs are present the model follows RGB and inherits
+its failure. Colour augmentation helps cross-session (66.8 → 58.7) but hurts in-domain (10.3 → 14.6).
+*Solid* (8 models: depth-only beats RGB-D cross-session in every one).
+Evidence: `results/inference_legacy/results_cross_0328*.txt` (4.2, 5c, 6b);
+`results/eval/<run>/test_0328/` (5, 6d, 7a, 7b, 7c).
+
+**Comparing models fairly.** Each model misses *different* frames, so the column above is not comparable
+across models: 7a's depth-only 30.8% excludes every frame of the three lightest clusters. On the
+**344 frames that all five models predict in all three modes** (18 clusters, 329 g and up):
+
+| Model | RGB-D | RGB only | depth only | RGB-D on the 3 lightest clusters (40 frames) |
+|---|---|---|---|---|
+| 5 | 47.2 | 47.0 | 35.0 | 221 |
+| 6d | 48.4 | 47.7 | 42.5 | 169 |
+| 7a | **37.6** | **36.7** | **31.2** | **95** |
+| 7b | 51.6 | 51.6 | 39.3 | 180 |
+| 7c | 50.1 | 49.3 | 39.3 | 142 |
+
+- **7a (RGB-drop 0.65) is the best cross-session model** with RGB present: ~10 pp better than the
+  others on the shared frames and about half the error on the light clusters. But its depth-only
+  detection breaks on light clusters (misses all 40 frames of 186 / 220 / 296 g, 63 in total), and
+  in-domain it is worse (13.6% RGB-D, 18.4% depth-only vs 10.3 / 11.0% for model 5). *Open* — one run,
+  and 5 vs 7c (same setup) already differ by ~3 pp here and by 29 vs 15 misses.
+- **Depth-only beats RGB-D on the shared frames for every model** (by 6–12 pp), so the B2 conclusion
+  does not depend on which frames are missed. *Solid* (5 models).
+- Mass-weight schedule (6d) and depth dropout (7b) bring no cross-session gain.
+Evidence: `results/eval/<run>/test_0328/per_image.csv`.
+
+**Caveat — the depth-only column skips the hardest frames.** Each number above is over the frames
+that mode detects. For model 5, depth-only misses **29/416** test_0328 frames, all in the lightest
+clusters, at normal distances (490–680 mm):
+
+| Cluster | Frames | Depth-only misses | RGB-D MAPE (all frames) | Depth-only MAPE (detected) |
+|---|---|---|---|---|
+| 186 g | 9 | 6 | 295% | 101% |
+| 220 g | 9 | 5 | 295% | 142% |
+| 296 g | 22 | 16 | 161% | 62% |
+| 368 g | 17 | 2 | 95% | 27% |
+| other 17 clusters (329–1029 g) | 359 | 0 | 14–119% | |
+
+RGB-D has 215% MAPE on the 29 missed frames (RGB-only 203%). Compared on the **387 frames where all three
+predict**: RGB-D **55.7%**, RGB-only 55.3%, depth-only **35.8%**. So depth is still clearly more robust,
+but the gap is ~20 pp, not ~31 pp. Report it as "depth-only 35.8% on the 387 common frames, 29 frames
+not detected (three lightest clusters)". *Solid* for model 5. The other models miss the same light
+clusters (6d 26, 7c 15, 7b 53, 7a 63 frames; 7a and 7b also a few heavier frames).
+
+Light clusters are not hard in themselves: in-domain the 208 g cluster is the best one (7.3%, B1).
+They fail under the **session shift**, all modes overestimate them heavily, and depth-only fails least
+but loses the detection on ~60% of the frames from the three lightest clusters.
+Evidence: `results/eval/s0713_zoom_drop05/test_0328/per_image.csv`.
+
+| Model 5 | In-domain (val) | Cross-session (test_0328) |
+|---|---|---|
+| Depth-only misses | 2 / 190 (far frames) | 29 / 416 (light clusters) |
+| Common frames: RGB-D / RGB only / depth only | 10.4 / 10.8 / 11.0% (tie) | 55.7 / 55.3 / 35.8% (depth wins) |
 
 **B3. With RGB present, depth is only a small correction.** Replacing depth with a constant changes
 model 5's predictions by **2.5% on average** (median 1.7%); its error is ~10%. Same for 6b (2.6%),
@@ -64,7 +126,7 @@ distance. Evidence: `results/audit_2026-10/val190/7c_drop_05_00/gradient_audit_p
 
 ## C. Why depth was ignored, and what fixed it (gradient audit, Oct 2026)
 
-Audit = per-loss gradients at frozen checkpoints (`gradient_audit_sweep2.py`). Cross-model numbers use
+Audit = per-loss gradients at frozen checkpoints (`audit/gradient_audit_sweep2.py`). Cross-model numbers use
 60 fixed val images; models 5 and 7c were also audited on all 190 with per-image values.
 Summary: `results/audit_2026-10/summary.md`, figures `fig_audit_models.png`, `fig_audit_training.png`.
 
@@ -106,7 +168,10 @@ weight 5 (6c) prevented it entirely (AP NaN, no detections). A gentle start (6d:
 AP 87.8 at 2k. *Likely* (one run each). Evidence: `metrics.json` of 5, 6b, 6c, 6d.
 
 **D2. No loss-weighting or dropout variant beat model 5 in-domain** (6a–7c: 12.0–15.9% vs 10.3%),
-but all are within run-to-run noise (A4). Cross-session was only evaluated for 6b (no gain).
+but all are within run-to-run noise (A4). Cross-session (B2): 6b, 6d, 7b, 7c no gain; 7a (RGB-drop
+0.65) clearly better with RGB present (44.8% vs 62–67%), at the cost of in-domain accuracy and of
+depth-only detection on light clusters. 6a (late fusion) not evaluated: this repo's detectron2 has no
+late fusion, and the variant is abandoned.
 
 ---
 
@@ -125,5 +190,8 @@ but all are within run-to-run noise (A4). Cross-session was only evaluated for 6
 
 1. Can a fusion use depth's cross-session robustness instead of following RGB? (B2)
 2. Is the far-distance depth failure real (B4)? Check cross-session per distance.
-3. Do the June variants (6a, 6d, 7a, 7b, 7c) differ cross-session? Not evaluated yet.
+3. Is 7a's cross-session gain (RGB-drop 0.65) real or one lucky run? Needs ≥2 more runs at 0.65 and
+   at 0.5 (A4). If real: why does more depth-only training make the *RGB-D* prediction more robust?
 4. Does a detection warm-up improve mass accuracy, or only stability? Needs ≥3 runs per setting (A4).
+5. Why do light clusters fail cross-session (B2)? Detection without colour, a size shift between
+   sessions, or something else? The prediction images (`evaluate.py --save_viz`) would show it.

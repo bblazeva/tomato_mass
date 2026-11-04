@@ -90,7 +90,7 @@ import detectron2.data.transforms as T
 from detectron2.evaluation import COCOEvaluator, DatasetEvaluators
 
 import utils_detection
-from mass_evaluator_mean import MassEvaluator
+from mass_evaluator import MassEvaluator
 
 from detectron2.utils.visualizer import Visualizer
 from detectron2.data import MetadataCatalog

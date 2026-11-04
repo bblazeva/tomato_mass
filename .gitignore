@@ -1,9 +1,8 @@
-# Large / machine-local things live outside git:
-#   output/  -> /mnt/md0/blagicab/tomato_thesis_runs (checkpoints, metrics, audits)
-#   data     -> raw images + depth in the old repo
-output
-data
-weights/
+/output
+/data
+/data_s0713
+/weights/
+
 *.pth
 *.pkl
 *.pickle
@@ -27,3 +26,5 @@ inspect_input_viz/
 # Editors
 .vscode/
 .idea/
+
+README_for_me.md
