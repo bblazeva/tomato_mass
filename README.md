@@ -33,7 +33,7 @@ Commands in `runs.csv` and `docs/history/` use the script names from when each r
 
 ## Data
 
-The images, depth maps and trained checkpoints are not included in this repository. Two capture
+The dataset (images, depth maps, annotations) and trained checkpoints are not included in this repository. Two capture
 sessions are used, split so that no cluster appears in more than one of train and validation:
 
 | Split | Session | Frames | Purpose |
