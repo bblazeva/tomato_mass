@@ -1,0 +1,47 @@
+key,mass_g,session,type,n_tomatoes,note
+164,164,home,cherry,8,
+208,208,home,cherry,10,
+239,239,home,cherry,12,some hidden in some captures
+375,375,home,normal,2,
+450,450,home,normal,2,
+490,490,home,normal,2,
+566,566,home,normal,2,
+600,600,home,normal,3,
+670,670,home,normal,3,
+790,790,home,normal,3,
+820,820,home,normal,4,
+940,940,home,normal,4,
+1010,1010,home,normal,4,
+1160,1160,home,normal,5,confirmed by the user (2026-11-08)
+122,122,lab1,cherry,8,
+123,123,lab1,cherry,6,side views show 4
+136a,136,lab1,cherry,7,vine; captured 16:45
+136b,136,lab1,cherry,9,rounder; captured 17:23
+145,145,lab1,cherry,8,side views hide some
+150,150,lab1,cherry,10,
+165,165,lab1,cherry,8,
+183,183,lab1,normal,2,
+280,280,lab1,normal,3,
+364,364,lab1,normal,4,
+430,430,lab1,normal,5,some images show 4
+186,186,lab2,normal,2,listed as 183 g in clusters_analysis.pdf; the file names say 186
+220,220,lab2,normal,2,
+296,296,lab2,normal,3,
+329,329,lab2,normal,3,
+368,368,lab2,normal,4,confirmed by the user (2026-11-08)
+390,390,lab2,normal,4,
+421,421,lab2,normal,3,
+470,470,lab2,normal,4,
+507,507,lab2,normal,5,occlusion
+560,560,lab2,normal,4,
+608,608,lab2,normal,5,occlusion
+655,655,lab2,normal,7,occlusion
+697,697,lab2,normal,7,occlusion
+705,705,lab2,normal,6,occlusion
+727,727,lab2,normal,7,occlusion
+765,765,lab2,normal,8,
+836,836,lab2,normal,8,occlusion
+857,857,lab2,normal,9,listed as 867 g in clusters_analysis.pdf; the file names say 857
+926,926,lab2,normal,8,occlusion
+947,947,lab2,normal,8,occlusion
+1029,1029,lab2,normal,8,occlusion
