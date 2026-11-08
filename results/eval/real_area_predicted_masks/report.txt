@@ -1,0 +1,55 @@
+Check against features.csv area_m2: ratio to sum(Z^2) spread (max/min) 1.0245 over 1122 images
+
+=== home: 573 images, 9 with no detection. Mask IoU with the annotation: median 0.94, under 0.5: 3
+  fit on the other sessions, all types: slope 1.23
+  One fit, type unknown, all clusters
+    predicted masks   MAPE   47.0%  per cluster   55.5%  MAE  203 g  R2  +0.20  rank +0.74  slope +0.34
+    annotated masks   MAPE   33.1%  per cluster   36.9%  MAE  165 g  R2  +0.64  rank +0.89  slope +0.47
+    CNN mass head     MAPE   30.9%  per cluster   29.1%  MAE  237 g  R2  -0.06  rank +0.74  slope +0.67
+  Separate fit per type, all clusters
+    predicted masks   MAPE   19.5%  per cluster   19.8%  MAE  136 g  R2  +0.71  rank +1.00  slope +1.01
+    annotated masks   MAPE   17.8%  per cluster   18.0%  MAE  122 g  R2  +0.76  rank +1.00  slope +1.03
+    CNN mass head     MAPE   30.9%  per cluster   29.1%  MAE  237 g  R2  -0.06  rank +0.74  slope +0.67
+  Separate fit, normal only
+    predicted masks   MAPE   19.2%  per cluster   18.4%  MAE  155 g  R2  +0.36  rank +1.00  slope +0.87
+    annotated masks   MAPE   16.9%  per cluster   15.8%  MAE  138 g  R2  +0.46  rank +1.00  slope +0.86
+    CNN mass head     MAPE   33.7%  per cluster   32.2%  MAE  279 g  R2  -1.36  rank +0.45  slope +0.34
+  Separate fit, cherry only
+    predicted masks   MAPE   21.1%  per cluster   24.9%  MAE   43 g  R2  -2.72  rank +1.00  slope +0.07
+    annotated masks   MAPE   22.3%  per cluster   26.1%  MAE   45 g  R2  -2.91  rank +1.00  slope +0.09
+    CNN mass head     MAPE   17.5%  per cluster   17.6%  MAE   35 g  R2  -2.54  rank +1.00  slope +0.50
+
+=== lab1: 133 images, 0 with no detection. Mask IoU with the annotation: median 0.94, under 0.5: 0
+  fit on the other sessions, all types: slope 1.34
+  One fit, type unknown, all clusters
+    predicted masks   MAPE   57.9%  per cluster   61.7%  MAE  101 g  R2  -0.31  rank +0.64  slope +0.34
+    annotated masks   MAPE   60.0%  per cluster   64.7%  MAE  105 g  R2  -0.36  rank +0.52  slope +0.26
+    CNN mass head     MAPE  249.0%  per cluster  261.3%  MAE  392 g  R2 -20.32  rank -0.07  slope -0.03
+  Separate fit per type, all clusters
+    predicted masks   MAPE   21.0%  per cluster   20.9%  MAE   46 g  R2  +0.68  rank +0.95  slope +1.01
+    annotated masks   MAPE   20.1%  per cluster   20.1%  MAE   44 g  R2  +0.71  rank +0.95  slope +0.96
+    CNN mass head     MAPE  249.0%  per cluster  261.3%  MAE  392 g  R2 -20.32  rank -0.07  slope -0.03
+  Separate fit, normal only
+    predicted masks   MAPE   22.6%  per cluster   22.7%  MAE   71 g  R2  +0.09  rank +1.00  slope +0.81
+    annotated masks   MAPE   21.2%  per cluster   21.2%  MAE   67 g  R2  +0.19  rank +1.00  slope +0.81
+    CNN mass head     MAPE   55.8%  per cluster   55.7%  MAE  180 g  R2  -3.87  rank +1.00  slope +0.98
+  Separate fit, cherry only
+    predicted masks   MAPE   19.9%  per cluster   19.9%  MAE   28 g  R2  -4.17  rank +0.79  slope +0.80
+    annotated masks   MAPE   19.3%  per cluster   19.5%  MAE   27 g  R2  -3.97  rank +0.82  slope +0.77
+    CNN mass head     MAPE  389.5%  per cluster  378.7%  MAE  546 g  R2 -1988.92  rank -0.11  slope -0.74
+
+=== lab2: 416 images, 0 with no detection. Mask IoU with the annotation: median 0.95, under 0.5: 0
+  fit on the other sessions, all types: slope 1.51
+  One fit, type unknown, all clusters
+    predicted masks   MAPE   18.2%  per cluster   18.4%  MAE  111 g  R2  +0.48  rank +0.96  slope +1.19
+    annotated masks   MAPE   17.9%  per cluster   18.3%  MAE  109 g  R2  +0.47  rank +0.96  slope +1.23
+    CNN mass head     MAPE   37.8%  per cluster   38.6%  MAE  273 g  R2  -1.29  rank +0.14  slope +0.08
+  Separate fit per type, all clusters
+    predicted masks   MAPE   22.4%  per cluster   22.9%  MAE  122 g  R2  +0.51  rank +0.96  slope +0.86
+    annotated masks   MAPE   22.3%  per cluster   22.4%  MAE  123 g  R2  +0.50  rank +0.96  slope +0.88
+    CNN mass head     MAPE   37.8%  per cluster   38.6%  MAE  273 g  R2  -1.29  rank +0.14  slope +0.08
+  Separate fit, normal only
+    predicted masks   MAPE   22.4%  per cluster   22.9%  MAE  122 g  R2  +0.51  rank +0.96  slope +0.86
+    annotated masks   MAPE   22.3%  per cluster   22.4%  MAE  123 g  R2  +0.50  rank +0.96  slope +0.88
+    CNN mass head     MAPE   37.8%  per cluster   38.6%  MAE  273 g  R2  -1.29  rank +0.14  slope +0.08
+

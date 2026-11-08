@@ -1,0 +1,175 @@
+{
+  "model": "output/s0713_zoom_drop_05_00/model_final.pth",
+  "name": "s0713_zoom_drop_05_00",
+  "split": "test_home_color",
+  "dataset_path": "./data_home_color/",
+  "conf_thr": 0.7,
+  "pixel_mean": [
+    103.53,
+    116.28,
+    123.675,
+    915.043
+  ],
+  "pixel_std": [
+    57.375,
+    57.12,
+    58.395,
+    411.683
+  ],
+  "pixel_norm_source": "defaults (train.py)",
+  "evaluated_at": "2026-11-05T20:57:18",
+  "command": "python evaluate.py --run s0713_zoom_drop_05_00 --dataset_path ./data_home_color/ --splits test_home_color --save_viz",
+  "modes": {
+    "rgbd": {
+      "n_images": 16,
+      "n_with_prediction": 16,
+      "n_no_detection": 0,
+      "mae_kg": 0.1873125,
+      "mape_pct": 34.81644981412639,
+      "bias_kg": 0.1790625,
+      "worst_abs_err_kg": 0.283,
+      "r2": null,
+      "distance_mm_range": [
+        332.0,
+        526.8
+      ]
+    },
+    "rgb_only": {
+      "n_images": 16,
+      "n_with_prediction": 16,
+      "n_no_detection": 0,
+      "mae_kg": 0.1858125,
+      "mape_pct": 34.53763940520446,
+      "bias_kg": 0.1769375,
+      "worst_abs_err_kg": 0.327,
+      "r2": null,
+      "distance_mm_range": [
+        333.5,
+        527.4
+      ]
+    },
+    "depth_only": {
+      "n_images": 16,
+      "n_with_prediction": 16,
+      "n_no_detection": 0,
+      "mae_kg": 0.32781249999999995,
+      "mape_pct": 60.93169144981412,
+      "bias_kg": 0.32418749999999996,
+      "worst_abs_err_kg": 0.497,
+      "r2": null,
+      "distance_mm_range": [
+        330.6,
+        525.9
+      ]
+    }
+  },
+  "clusters": {
+    "rgbd": {
+      "0.538": {
+        "n_images": 16,
+        "n_with_prediction": 16,
+        "n_no_detection": 0,
+        "mae_kg": 0.1873125,
+        "mape_pct": 34.81644981412639,
+        "bias_kg": 0.1790625,
+        "worst_abs_err_kg": 0.283,
+        "r2": null,
+        "distance_mm_range": [
+          332.0,
+          526.8
+        ]
+      }
+    },
+    "rgb_only": {
+      "0.538": {
+        "n_images": 16,
+        "n_with_prediction": 16,
+        "n_no_detection": 0,
+        "mae_kg": 0.1858125,
+        "mape_pct": 34.53763940520446,
+        "bias_kg": 0.1769375,
+        "worst_abs_err_kg": 0.327,
+        "r2": null,
+        "distance_mm_range": [
+          333.5,
+          527.4
+        ]
+      }
+    },
+    "depth_only": {
+      "0.538": {
+        "n_images": 16,
+        "n_with_prediction": 16,
+        "n_no_detection": 0,
+        "mae_kg": 0.32781249999999995,
+        "mape_pct": 60.93169144981412,
+        "bias_kg": 0.32418749999999996,
+        "worst_abs_err_kg": 0.497,
+        "r2": null,
+        "distance_mm_range": [
+          330.6,
+          525.9
+        ]
+      }
+    }
+  },
+  "common_frames": {
+    "n_frames": 16,
+    "modes": {
+      "rgbd": {
+        "n_images": 16,
+        "n_with_prediction": 16,
+        "n_no_detection": 0,
+        "mae_kg": 0.1873125,
+        "mape_pct": 34.81644981412639,
+        "bias_kg": 0.1790625,
+        "worst_abs_err_kg": 0.283,
+        "r2": null,
+        "distance_mm_range": [
+          332.0,
+          526.8
+        ]
+      },
+      "rgb_only": {
+        "n_images": 16,
+        "n_with_prediction": 16,
+        "n_no_detection": 0,
+        "mae_kg": 0.1858125,
+        "mape_pct": 34.53763940520446,
+        "bias_kg": 0.1769375,
+        "worst_abs_err_kg": 0.327,
+        "r2": null,
+        "distance_mm_range": [
+          333.5,
+          527.4
+        ]
+      },
+      "depth_only": {
+        "n_images": 16,
+        "n_with_prediction": 16,
+        "n_no_detection": 0,
+        "mae_kg": 0.32781249999999995,
+        "mape_pct": 60.93169144981412,
+        "bias_kg": 0.32418749999999996,
+        "worst_abs_err_kg": 0.497,
+        "r2": null,
+        "distance_mm_range": [
+          330.6,
+          525.9
+        ]
+      }
+    }
+  },
+  "change_vs_rgbd": {
+    "rgb_only": {
+      "n_frames": 16,
+      "mean_pct": 3.8550456246941867,
+      "median_pct": 1.9553589844555637
+    },
+    "depth_only": {
+      "n_frames": 16,
+      "mean_pct": 21.183404539722716,
+      "median_pct": 25.31612371772757
+    }
+  }
+}

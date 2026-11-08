@@ -1,6 +1,8 @@
 /output
 /data
 /data_s0713
+/data_min120
+/data_home_color
 /weights/
 
 *.pth
@@ -28,3 +30,6 @@ inspect_input_viz/
 .idea/
 
 README_for_me.md
+
+# Extracted network features (large; regenerate with analysis/look_inside.py)
+results/eval/look_inside/*.npz

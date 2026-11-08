@@ -1,0 +1,94 @@
+46 clusters, 1122 images
+A. Inventory
+  sessiontype     clusters images  img/cluster     mass g  tomatoes  g per tomato  distance mm
+  home   cherry          3     97         9-45    164-239      8-12         20-21      350-927
+  home   normal         11    476         7-64   375-1160       2-5       188-283     337-1371
+  lab1   cherry          7     77         5-17    122-165      6-10         15-21      441-519
+  lab1   normal          4     56        12-16    183-430       2-5         86-93      439-509
+  lab2   cherry          0
+  lab2   normal         21    416         9-28   186-1029       2-9        92-140      472-685
+
+B. More tomatoes = more mass? Rank correlation of count with mass, over clusters
+  all clusters mixed     n=46  +0.03
+  home mixed             n=14  -0.02
+  home cherry            n= 3  +1.00
+  home normal            n=11  +1.00
+  lab1 mixed             n=11  -0.47
+  lab1 cherry            n= 7  +0.71
+  lab1 normal            n= 4  +1.00
+  lab2 mixed             n=21  +0.97
+  lab2 normal            n=21  +0.97
+  all normal mixed       n=36  +0.65
+  all cherry mixed       n=10  +0.70
+
+  Normal tomatoes: mass range (g) by tomato count and session
+  count                  home                lab1                lab2
+  2                   375-566                 183             186-220
+  3                   600-790                 280             296-421
+  4                  820-1010                 364             368-560
+  5                      1160                 430             507-608
+  6                         -                   -                 705
+  7                         -                   -             655-727
+  8                         -                   -            765-1029
+  9                         -                   -                 857
+
+C. What else differs per session (per image; colours measured with the GT mask)
+  sessiontype      tomato saturation  tomato brightness  bg brightness  cluster px share %
+  home   cherry                  222                146            123                 3.0
+  home   normal                  237                168            124                 3.5
+  lab1   cherry                  139                227            147                 2.7
+  lab1   normal                  116                237            146                 3.1
+  lab2   normal                  229                238            125                 3.1
+  Mean distance per cluster vs mass (rank correlation over clusters):
+    home  +0.44   median far/near distance ratio within a cluster: x2.41
+    lab1  +0.01   median far/near distance ratio within a cluster: x1.09
+    lab2  -0.60   median far/near distance ratio within a cluster: x1.21
+
+D. Leave-one-session-out: one-measurement baselines vs the CNN (MAPE %, per image; per-type offset where stated)
+  measurement                          home     lab1     lab2
+  tomato count                         76.7    220.8     61.4
+  pixel area                           58.9    209.8     27.0
+  real area (mask + depth)             33.0     60.0     17.7
+  CNN rgbd                             30.9    249.0     37.8
+  CNN rgb_only                         32.8    243.4     36.4
+  CNN depth_only                       39.2    154.9     53.3
+  Same, within normal tomatoes only:
+  tomato count                         54.3    100.2     82.6
+  pixel area                           39.0    116.5     38.8
+  real area (mask + depth)             16.7     21.1     22.1
+  CNN rgbd                             33.7     55.8     37.8
+  CNN rgb_only                         34.8     53.5     36.4
+  CNN depth_only                       39.8     55.2     53.3
+  Mass per unit of real area (g per cm2 of visible mask), per session and type:
+    home  cherry  median 2.4  (10-90%: 2.2-2.6)
+    home  normal  median 6.4  (10-90%: 5.7-7.3)
+    lab1  cherry  median 2.3  (10-90%: 1.9-3.8)
+    lab1  normal  median 5.3  (10-90%: 3.9-7.5)
+    lab2  normal  median 5.4  (10-90%: 4.2-6.5)
+
+E. Model behaviour per cluster group, RGB-D (slope of log pred on log mass: 1 = follows, 0 = flat)
+  home
+    cherry: session in training    n= 3  pred/true x1.01  pred range  191- 219 g (true 164-239)  follows mass: rank -1.00, slope -0.37  pred g/tomato 20 (true 20)
+    cherry: session unseen         n= 3  pred/true x0.91  pred range  164- 198 g (true 164-239)  follows mass: rank +1.00, slope +0.50  pred g/tomato 19 (true 20)
+    cherry: unseen, depth only     n= 3  pred/true x1.00  pred range  175- 263 g (true 164-239)  follows mass: rank -0.50, slope +0.16  pred g/tomato 22 (true 20)
+    normal: session in training    n=11  pred/true x1.07  pred range  512-1068 g (true 375-1160)  follows mass: rank +0.80, slope +0.48  pred g/tomato 246 (true 232)
+    normal: session unseen         n=11  pred/true x0.71  pred range  326- 718 g (true 375-1160)  follows mass: rank +0.45, slope +0.34  pred g/tomato 169 (true 232)
+    normal: unseen, depth only     n=11  pred/true x0.68  pred range  373- 626 g (true 375-1160)  follows mass: rank +0.30, slope +0.17  pred g/tomato 162 (true 232)
+  lab1
+    cherry: session in training    n= 7  pred/true x1.03  pred range  131- 151 g (true 122-165)  follows mass: rank -0.18, slope -0.12  pred g/tomato 18 (true 18)
+    cherry: session unseen         n= 7  pred/true x4.12  pred range  354- 993 g (true 122-165)  follows mass: rank -0.11, slope -0.74  pred g/tomato 65 (true 18)
+    cherry: unseen, depth only     n= 7  pred/true x3.02  pred range  345- 566 g (true 122-165)  follows mass: rank +0.29, slope +0.02  pred g/tomato 55 (true 18)
+    normal: session in training    n= 4  pred/true x1.10  pred range  263- 377 g (true 183-430)  follows mass: rank +1.00, slope +0.41  pred g/tomato 101 (true 91)
+    normal: session unseen         n= 4  pred/true x1.54  pred range  291- 656 g (true 183-430)  follows mass: rank +1.00, slope +0.98  pred g/tomato 141 (true 91)
+    normal: unseen, depth only     n= 4  pred/true x1.50  pred range  315- 538 g (true 183-430)  follows mass: rank +1.00, slope +0.65  pred g/tomato 142 (true 91)
+  lab2
+    normal: session in training    n=21  pred/true x0.99  pred range  251- 934 g (true 186-1029)  follows mass: rank +0.89, slope +0.70  pred g/tomato 106 (true 104)
+    normal: session unseen         n=21  pred/true x0.65  pred range  226- 544 g (true 186-1029)  follows mass: rank +0.14, slope +0.08  pred g/tomato 76 (true 104)
+    normal: unseen, depth only     n=21  pred/true x0.45  pred range  173- 390 g (true 186-1029)  follows mass: rank +0.46, slope +0.22  pred g/tomato 49 (true 104)
+  lab2, model 5 (trained on home only)
+    normal: RGB-D                  n=21  pred/true x1.39  pred range  426-1095 g (true 186-1029)  follows mass: rank -0.02, slope -0.03  pred g/tomato 142 (true 104)
+    normal: depth only             n=21  pred/true x1.05  pred range  358- 954 g (true 186-1029)  follows mass: rank +0.58, slope +0.33  pred g/tomato 111 (true 104)
+  Normal tomato size in training when a session is held out vs that session (g per tomato):
+    home   train 86-140, test 188-283
+    lab1   train 92-283, test 86-93
+    lab2   train 86-283, test 92-140

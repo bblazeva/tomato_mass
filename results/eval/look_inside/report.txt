@@ -1,0 +1,167 @@
+A. First-layer filters (64 filters; channels B, G, R, depth)
+  model                      DC share RGB  DC share depth  depth/RGB norm  depth vs start (cosine)
+  start weights                      0.25            0.18            0.84                     1.00
+  loso_lab                           0.25            0.30            0.85                     0.99
+  loso_home                          0.25            0.31            0.85                     0.99
+  loso_2023                          0.26            0.32            0.85                     0.99
+  CV fold 0                          0.26            0.32            0.85                     0.99
+  model 5 (zoom)                     0.25            0.31            0.85                     0.99
+  model 4.2 (no zoom)                0.25            0.31            0.85                     0.99
+
+B. Probes on the head's features. known = R2 by cluster within trained sessions; unseen = R2 and rank over clusters on the held-out session
+  held out 2023, rgbd, head final: 344 train / 100 test images
+    mass           known R2  +0.96   unseen R2   -6.80   unseen rank -0.06
+    real area      known R2  +0.71   unseen R2   -4.32   unseen rank +0.12
+    distance       known R2  +0.01   unseen R2  -34.71   unseen rank -0.03
+    pixel area     known R2  +0.39   unseen R2   +0.08   unseen rank +0.43
+    tomato count   known R2  +0.23   unseen R2   -0.61   unseen rank +0.59
+    tomato size    known R2  +0.39   unseen R2   -2.34   unseen rank -0.31
+    cherry/normal  known accuracy 0.99   unseen accuracy 0.44
+    which session  known accuracy 0.83 (2 sessions; majority 0.60)
+  held out 2023, rgbd, head input: 344 train / 100 test images
+    mass           known R2  +0.90   unseen R2   -6.12   unseen rank -0.05
+    real area      known R2  +0.84   unseen R2   -3.76   unseen rank +0.05
+    distance       known R2  +0.84   unseen R2  -39.14   unseen rank +0.12
+    pixel area     known R2  +0.97   unseen R2   +0.90   unseen rank +0.94
+    tomato count   known R2  +0.89   unseen R2   +0.80   unseen rank +0.67
+    tomato size    known R2  +0.91   unseen R2   -1.11   unseen rank +0.47
+    cherry/normal  known accuracy 1.00   unseen accuracy 0.48
+    which session  known accuracy 1.00 (2 sessions; majority 0.60)
+  held out 2023, depth_only, head final: 344 train / 100 test images
+    mass           known R2  +0.96   unseen R2   -4.27   unseen rank +0.42
+    real area      known R2  +0.75   unseen R2   -2.29   unseen rank +0.42
+    distance       known R2  +0.16   unseen R2  -43.84   unseen rank -0.55
+    pixel area     known R2  +0.52   unseen R2   -0.02   unseen rank +0.58
+    tomato count   known R2  +0.53   unseen R2   +0.04   unseen rank +0.71
+    tomato size    known R2  +0.70   unseen R2   -1.77   unseen rank +0.40
+    cherry/normal  known accuracy 0.99   unseen accuracy 0.43
+    which session  known accuracy 0.86 (2 sessions; majority 0.60)
+  held out 2023, depth_only, head input: 344 train / 100 test images
+    mass           known R2  +0.90   unseen R2   -4.81   unseen rank +0.23
+    real area      known R2  +0.85   unseen R2   -1.89   unseen rank +0.60
+    distance       known R2  +0.79   unseen R2  -19.12   unseen rank +0.20
+    pixel area     known R2  +0.93   unseen R2   +0.27   unseen rank +0.45
+    tomato count   known R2  +0.83   unseen R2   +0.17   unseen rank +0.43
+    tomato size    known R2  +0.91   unseen R2   -1.86   unseen rank +0.43
+    cherry/normal  known accuracy 1.00   unseen accuracy 0.40
+    which session  known accuracy 1.00 (2 sessions; majority 0.60)
+  held out home, rgbd, head final: 308 train / 133 test images
+    mass           known R2  +0.98   unseen R2   +0.42   unseen rank +0.77
+    real area      known R2  +0.82   unseen R2   -0.29   unseen rank +0.67
+    distance       known R2  +0.75   unseen R2   -0.13   unseen rank +0.22
+    pixel area     known R2  +0.85   unseen R2   +0.17   unseen rank +0.71
+    tomato count   known R2  +0.85   unseen R2   -0.02   unseen rank +0.88
+    tomato size    known R2  +0.92   unseen R2   +0.26   unseen rank +0.48
+    cherry/normal  known accuracy 1.00   unseen accuracy 0.98
+    which session  known accuracy 0.91 (2 sessions; majority 0.68)
+  held out home, rgbd, head input: 308 train / 133 test images
+    mass           known R2  +0.93   unseen R2   +0.36   unseen rank +0.67
+    real area      known R2  +0.89   unseen R2   -0.42   unseen rank +0.57
+    distance       known R2  +0.79   unseen R2   +0.26   unseen rank +0.40
+    pixel area     known R2  +0.97   unseen R2   +0.58   unseen rank +0.92
+    tomato count   known R2  +0.90   unseen R2   -0.15   unseen rank +0.85
+    tomato size    known R2  +0.91   unseen R2   -0.02   unseen rank +0.48
+    cherry/normal  known accuracy 1.00   unseen accuracy 0.92
+    which session  known accuracy 0.97 (2 sessions; majority 0.68)
+  held out home, depth_only, head final: 308 train / 60 test images
+    mass           known R2  +0.97   unseen R2   -7.18   unseen rank +0.59
+    real area      known R2  +0.85   unseen R2  -37.62   unseen rank +0.17
+    distance       known R2  +0.80   unseen R2   -0.73   unseen rank +0.03
+    pixel area     known R2  +0.82   unseen R2  -15.80   unseen rank +0.04
+    tomato count   known R2  +0.71   unseen R2   -0.71   unseen rank +0.55
+    tomato size    known R2  +0.87   unseen R2   -1.20   unseen rank +0.41
+    cherry/normal  known accuracy 0.99   unseen accuracy 0.92
+    which session  known accuracy 0.96 (2 sessions; majority 0.68)
+  held out home, depth_only, head input: 308 train / 60 test images
+    mass           known R2  +0.92   unseen R2   +0.33   unseen rank +0.65
+    real area      known R2  +0.94   unseen R2   -0.64   unseen rank +0.43
+    distance       known R2  +0.94   unseen R2   -0.91   unseen rank +0.15
+    pixel area     known R2  +0.95   unseen R2   -1.98   unseen rank +0.73
+    tomato count   known R2  +0.75   unseen R2   -3.80   unseen rank +0.85
+    tomato size    known R2  +0.84   unseen R2   -1.22   unseen rank +0.34
+    cherry/normal  known accuracy 0.99   unseen accuracy 0.95
+    which session  known accuracy 0.99 (2 sessions; majority 0.68)
+  held out lab, rgbd, head final: 236 train / 208 test images
+    mass           known R2  +0.98   unseen R2   -0.90   unseen rank +0.21
+    real area      known R2  +0.73   unseen R2   -0.60   unseen rank +0.65
+    distance       known R2  +0.25   unseen R2   -6.36   unseen rank -0.08
+    pixel area     known R2  +0.23   unseen R2   +0.17   unseen rank +0.43
+    tomato count   known R2  +0.66   unseen R2   -0.19   unseen rank +0.58
+    tomato size    known R2  +0.91   unseen R2  -14.41   unseen rank +0.17
+    cherry/normal  known accuracy 1.00   unseen accuracy 0.93
+    which session  known accuracy 0.90 (2 sessions; majority 0.58)
+  held out lab, rgbd, head input: 236 train / 208 test images
+    mass           known R2  +0.94   unseen R2   -0.63   unseen rank +0.29
+    real area      known R2  +0.83   unseen R2   -0.09   unseen rank +0.58
+    distance       known R2  +0.91   unseen R2  -11.88   unseen rank +0.51
+    pixel area     known R2  +0.97   unseen R2   +0.90   unseen rank +0.98
+    tomato count   known R2  +0.89   unseen R2   +0.45   unseen rank +0.81
+    tomato size    known R2  +0.96   unseen R2   -9.75   unseen rank +0.17
+    cherry/normal  known accuracy 1.00   unseen accuracy 0.90
+    which session  known accuracy 0.99 (2 sessions; majority 0.58)
+  held out lab, depth_only, head final: 236 train / 208 test images
+    mass           known R2  +0.98   unseen R2   -2.40   unseen rank +0.52
+    real area      known R2  +0.75   unseen R2   -1.87   unseen rank +0.78
+    distance       known R2  +0.21   unseen R2   -8.19   unseen rank +0.11
+    pixel area     known R2  +0.20   unseen R2   +0.34   unseen rank +0.68
+    tomato count   known R2  +0.75   unseen R2   -0.30   unseen rank +0.68
+    tomato size    known R2  +0.95   unseen R2  -20.97   unseen rank +0.30
+    cherry/normal  known accuracy 1.00   unseen accuracy 0.88
+    which session  known accuracy 0.93 (2 sessions; majority 0.58)
+  held out lab, depth_only, head input: 236 train / 208 test images
+    mass           known R2  +0.86   unseen R2   -0.96   unseen rank +0.69
+    real area      known R2  +0.78   unseen R2   -0.00   unseen rank +0.82
+    distance       known R2  +0.77   unseen R2   -5.55   unseen rank +0.07
+    pixel area     known R2  +0.89   unseen R2   +0.66   unseen rank +0.96
+    tomato count   known R2  +0.84   unseen R2   -0.17   unseen rank +0.86
+    tomato size    known R2  +0.94   unseen R2   -6.62   unseen rank +0.48
+    cherry/normal  known accuracy 0.99   unseen accuracy 0.89
+    which session  known accuracy 1.00 (2 sessions; majority 0.58)
+
+C. Feature change caused by a change in the input, relative to natural differences (held-out session images).
+   Ratio < 1: the change alters the features less than another view of the same cluster does.
+   Numbers: median |change| / |same cluster, other image|, then / |other cluster|; last: median prediction factor
+  held out 2023 rgbd       input image zoom       same-cluster x0.90   other-cluster x0.83   pred x1.08
+  held out 2023 rgbd       input depth x1.25      same-cluster x0.05   other-cluster x0.04   pred x1.00
+  held out 2023 rgbd       input consistent zoom  same-cluster x0.90   other-cluster x0.83   pred x1.07
+  held out 2023 rgbd       final image zoom       same-cluster x0.88   other-cluster x0.44   pred x1.08
+  held out 2023 rgbd       final depth x1.25      same-cluster x0.06   other-cluster x0.03   pred x1.00
+  held out 2023 rgbd       final consistent zoom  same-cluster x0.89   other-cluster x0.44   pred x1.07
+  held out 2023 depth_only input image zoom       same-cluster x1.16   other-cluster x1.00   pred x1.28
+  held out 2023 depth_only input depth x1.25      same-cluster x0.35   other-cluster x0.27   pred x1.11
+  held out 2023 depth_only input consistent zoom  same-cluster x1.20   other-cluster x1.04   pred x1.19
+  held out 2023 depth_only final image zoom       same-cluster x1.10   other-cluster x0.82   pred x1.28
+  held out 2023 depth_only final depth x1.25      same-cluster x0.35   other-cluster x0.29   pred x1.11
+  held out 2023 depth_only final consistent zoom  same-cluster x1.10   other-cluster x0.88   pred x1.19
+  held out home rgbd       input image zoom       same-cluster x0.77   other-cluster x0.56   pred x1.04
+  held out home rgbd       input depth x1.25      same-cluster x0.20   other-cluster x0.15   pred x0.98
+  held out home rgbd       input consistent zoom  same-cluster x0.77   other-cluster x0.64   pred x1.06
+  held out home rgbd       final image zoom       same-cluster x0.77   other-cluster x0.51   pred x1.04
+  held out home rgbd       final depth x1.25      same-cluster x0.23   other-cluster x0.15   pred x0.98
+  held out home rgbd       final consistent zoom  same-cluster x0.78   other-cluster x0.50   pred x1.06
+  held out home depth_only input image zoom       same-cluster x0.73   other-cluster x0.61   pred x1.16
+  held out home depth_only input depth x1.25      same-cluster x0.52   other-cluster x0.43   pred x1.07
+  held out home depth_only input consistent zoom  same-cluster x0.82   other-cluster x0.75   pred x1.24
+  held out home depth_only final image zoom       same-cluster x0.79   other-cluster x0.55   pred x1.16
+  held out home depth_only final depth x1.25      same-cluster x0.55   other-cluster x0.46   pred x1.07
+  held out home depth_only final consistent zoom  same-cluster x0.89   other-cluster x0.65   pred x1.24
+  held out lab  rgbd       input image zoom       same-cluster x0.79   other-cluster x0.54   pred x1.11
+  held out lab  rgbd       input depth x1.25      same-cluster x0.07   other-cluster x0.05   pred x0.99
+  held out lab  rgbd       input consistent zoom  same-cluster x0.79   other-cluster x0.54   pred x1.14
+  held out lab  rgbd       final image zoom       same-cluster x0.88   other-cluster x0.64   pred x1.11
+  held out lab  rgbd       final depth x1.25      same-cluster x0.12   other-cluster x0.08   pred x0.99
+  held out lab  rgbd       final consistent zoom  same-cluster x0.87   other-cluster x0.64   pred x1.14
+  held out lab  depth_only input image zoom       same-cluster x0.90   other-cluster x0.65   pred x1.24
+  held out lab  depth_only input depth x1.25      same-cluster x0.34   other-cluster x0.24   pred x1.05
+  held out lab  depth_only input consistent zoom  same-cluster x0.92   other-cluster x0.66   pred x1.12
+  held out lab  depth_only final image zoom       same-cluster x0.99   other-cluster x0.66   pred x1.24
+  held out lab  depth_only final depth x1.25      same-cluster x0.41   other-cluster x0.27   pred x1.05
+  held out lab  depth_only final consistent zoom  same-cluster x0.85   other-cluster x0.58   pred x1.12
+
+D. Mass on the unseen session from: head final features; real area alone; both (ridge; MAPE %, rank over clusters)
+  held out 2023 rgbd          features  242.7% (-0.06)   real area   67.3% (+0.43)   both  204.9% (-0.06)
+  held out 2023 depth_only    features  168.0% (+0.42)   real area   67.3% (+0.43)   both  154.0% (+0.42)
+  held out home rgbd          features   28.6% (+0.77)   real area   36.8% (+0.88)   both   28.1% (+0.82)
+  held out home depth_only    features 10350.5% (+0.59)   real area   30.9% (+0.89)   both 6131.9% (+0.59)
+  held out lab  rgbd          features   38.6% (+0.21)   real area   17.0% (+0.96)   both   37.8% (+0.24)
+  held out lab  depth_only    features   49.0% (+0.52)   real area   17.0% (+0.96)   both   47.6% (+0.59)

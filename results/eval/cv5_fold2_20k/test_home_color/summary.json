@@ -1,0 +1,175 @@
+{
+  "model": "output/cv5_fold2_20k/model_final.pth",
+  "name": "cv5_fold2_20k",
+  "split": "test_home_color",
+  "dataset_path": "./data_home_color/",
+  "conf_thr": 0.7,
+  "pixel_mean": [
+    103.53,
+    116.28,
+    123.675,
+    915.043
+  ],
+  "pixel_std": [
+    57.375,
+    57.12,
+    58.395,
+    411.683
+  ],
+  "pixel_norm_source": "run config.yaml",
+  "evaluated_at": "2026-11-05T20:56:54",
+  "command": "python evaluate.py --run cv5_fold2_20k --dataset_path ./data_home_color/ --splits test_home_color --save_viz",
+  "modes": {
+    "rgbd": {
+      "n_images": 16,
+      "n_with_prediction": 16,
+      "n_no_detection": 0,
+      "mae_kg": 0.144625,
+      "mape_pct": 26.881970260223042,
+      "bias_kg": 0.137875,
+      "worst_abs_err_kg": 0.316,
+      "r2": null,
+      "distance_mm_range": [
+        332.2,
+        527.4
+      ]
+    },
+    "rgb_only": {
+      "n_images": 16,
+      "n_with_prediction": 16,
+      "n_no_detection": 0,
+      "mae_kg": 0.14756249999999999,
+      "mape_pct": 27.427973977695164,
+      "bias_kg": 0.1205625,
+      "worst_abs_err_kg": 0.388,
+      "r2": null,
+      "distance_mm_range": [
+        328.0,
+        528.0
+      ]
+    },
+    "depth_only": {
+      "n_images": 16,
+      "n_with_prediction": 16,
+      "n_no_detection": 0,
+      "mae_kg": 0.07475,
+      "mape_pct": 13.894052044609662,
+      "bias_kg": -0.02375,
+      "worst_abs_err_kg": 0.178,
+      "r2": null,
+      "distance_mm_range": [
+        329.9,
+        525.7
+      ]
+    }
+  },
+  "clusters": {
+    "rgbd": {
+      "0.538": {
+        "n_images": 16,
+        "n_with_prediction": 16,
+        "n_no_detection": 0,
+        "mae_kg": 0.144625,
+        "mape_pct": 26.881970260223042,
+        "bias_kg": 0.137875,
+        "worst_abs_err_kg": 0.316,
+        "r2": null,
+        "distance_mm_range": [
+          332.2,
+          527.4
+        ]
+      }
+    },
+    "rgb_only": {
+      "0.538": {
+        "n_images": 16,
+        "n_with_prediction": 16,
+        "n_no_detection": 0,
+        "mae_kg": 0.14756249999999999,
+        "mape_pct": 27.427973977695164,
+        "bias_kg": 0.1205625,
+        "worst_abs_err_kg": 0.388,
+        "r2": null,
+        "distance_mm_range": [
+          328.0,
+          528.0
+        ]
+      }
+    },
+    "depth_only": {
+      "0.538": {
+        "n_images": 16,
+        "n_with_prediction": 16,
+        "n_no_detection": 0,
+        "mae_kg": 0.07475,
+        "mape_pct": 13.894052044609662,
+        "bias_kg": -0.02375,
+        "worst_abs_err_kg": 0.178,
+        "r2": null,
+        "distance_mm_range": [
+          329.9,
+          525.7
+        ]
+      }
+    }
+  },
+  "common_frames": {
+    "n_frames": 16,
+    "modes": {
+      "rgbd": {
+        "n_images": 16,
+        "n_with_prediction": 16,
+        "n_no_detection": 0,
+        "mae_kg": 0.144625,
+        "mape_pct": 26.881970260223042,
+        "bias_kg": 0.137875,
+        "worst_abs_err_kg": 0.316,
+        "r2": null,
+        "distance_mm_range": [
+          332.2,
+          527.4
+        ]
+      },
+      "rgb_only": {
+        "n_images": 16,
+        "n_with_prediction": 16,
+        "n_no_detection": 0,
+        "mae_kg": 0.14756249999999999,
+        "mape_pct": 27.427973977695164,
+        "bias_kg": 0.1205625,
+        "worst_abs_err_kg": 0.388,
+        "r2": null,
+        "distance_mm_range": [
+          328.0,
+          528.0
+        ]
+      },
+      "depth_only": {
+        "n_images": 16,
+        "n_with_prediction": 16,
+        "n_no_detection": 0,
+        "mae_kg": 0.07475,
+        "mape_pct": 13.894052044609662,
+        "bias_kg": -0.02375,
+        "worst_abs_err_kg": 0.178,
+        "r2": null,
+        "distance_mm_range": [
+          329.9,
+          525.7
+        ]
+      }
+    }
+  },
+  "change_vs_rgbd": {
+    "rgb_only": {
+      "n_frames": 16,
+      "mean_pct": 10.100022676349816,
+      "median_pct": 10.250305250305251
+    },
+    "depth_only": {
+      "n_frames": 16,
+      "mean_pct": 23.440188981561295,
+      "median_pct": 24.869400968620205
+    }
+  }
+}

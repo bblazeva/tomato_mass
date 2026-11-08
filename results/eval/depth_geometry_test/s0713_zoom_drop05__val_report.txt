@@ -1,0 +1,9 @@
+24 images, 4 clusters. Prediction factor: median over clusters (middle 50% of clusters)
+
+condition             if it computed size                      rgbd                depth_only                  rgb_only
+depth x1.25                         x1.79         x1.00 (1.00-1.01)         x1.03 (1.01-1.03)                         -
+depth x0.8                          x0.56         x1.00 (1.00-1.00)         x0.99 (0.98-0.99)                         -
+image zoom                          x1.79         x1.02 (1.02-1.08)         x1.11 (1.00-1.22)         x1.02 (1.01-1.09)
+consistent zoom                     x1.00         x1.02 (1.02-1.08)         x1.09 (1.03-1.18)                         -
+
+No detection after the change: depth_only / depth x0.8: 1, depth_only / image zoom: 1

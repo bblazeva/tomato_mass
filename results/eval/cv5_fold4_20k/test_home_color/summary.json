@@ -1,0 +1,175 @@
+{
+  "model": "output/cv5_fold4_20k/model_final.pth",
+  "name": "cv5_fold4_20k",
+  "split": "test_home_color",
+  "dataset_path": "./data_home_color/",
+  "conf_thr": 0.7,
+  "pixel_mean": [
+    103.53,
+    116.28,
+    123.675,
+    915.043
+  ],
+  "pixel_std": [
+    57.375,
+    57.12,
+    58.395,
+    411.683
+  ],
+  "pixel_norm_source": "run config.yaml",
+  "evaluated_at": "2026-11-05T20:57:06",
+  "command": "python evaluate.py --run cv5_fold4_20k --dataset_path ./data_home_color/ --splits test_home_color --save_viz",
+  "modes": {
+    "rgbd": {
+      "n_images": 16,
+      "n_with_prediction": 16,
+      "n_no_detection": 0,
+      "mae_kg": 0.14037499999999997,
+      "mape_pct": 26.092007434944236,
+      "bias_kg": 0.1325,
+      "worst_abs_err_kg": 0.31,
+      "r2": null,
+      "distance_mm_range": [
+        335.2,
+        526.7
+      ]
+    },
+    "rgb_only": {
+      "n_images": 16,
+      "n_with_prediction": 16,
+      "n_no_detection": 0,
+      "mae_kg": 0.11531250000000001,
+      "mape_pct": 21.433550185873603,
+      "bias_kg": 0.0861875,
+      "worst_abs_err_kg": 0.274,
+      "r2": null,
+      "distance_mm_range": [
+        336.2,
+        528.1
+      ]
+    },
+    "depth_only": {
+      "n_images": 16,
+      "n_with_prediction": 16,
+      "n_no_detection": 0,
+      "mae_kg": 0.094125,
+      "mape_pct": 17.495353159851298,
+      "bias_kg": 0.091125,
+      "worst_abs_err_kg": 0.244,
+      "r2": null,
+      "distance_mm_range": [
+        330.0,
+        525.9
+      ]
+    }
+  },
+  "clusters": {
+    "rgbd": {
+      "0.538": {
+        "n_images": 16,
+        "n_with_prediction": 16,
+        "n_no_detection": 0,
+        "mae_kg": 0.14037499999999997,
+        "mape_pct": 26.092007434944236,
+        "bias_kg": 0.1325,
+        "worst_abs_err_kg": 0.31,
+        "r2": null,
+        "distance_mm_range": [
+          335.2,
+          526.7
+        ]
+      }
+    },
+    "rgb_only": {
+      "0.538": {
+        "n_images": 16,
+        "n_with_prediction": 16,
+        "n_no_detection": 0,
+        "mae_kg": 0.11531250000000001,
+        "mape_pct": 21.433550185873603,
+        "bias_kg": 0.0861875,
+        "worst_abs_err_kg": 0.274,
+        "r2": null,
+        "distance_mm_range": [
+          336.2,
+          528.1
+        ]
+      }
+    },
+    "depth_only": {
+      "0.538": {
+        "n_images": 16,
+        "n_with_prediction": 16,
+        "n_no_detection": 0,
+        "mae_kg": 0.094125,
+        "mape_pct": 17.495353159851298,
+        "bias_kg": 0.091125,
+        "worst_abs_err_kg": 0.244,
+        "r2": null,
+        "distance_mm_range": [
+          330.0,
+          525.9
+        ]
+      }
+    }
+  },
+  "common_frames": {
+    "n_frames": 16,
+    "modes": {
+      "rgbd": {
+        "n_images": 16,
+        "n_with_prediction": 16,
+        "n_no_detection": 0,
+        "mae_kg": 0.14037499999999997,
+        "mape_pct": 26.092007434944236,
+        "bias_kg": 0.1325,
+        "worst_abs_err_kg": 0.31,
+        "r2": null,
+        "distance_mm_range": [
+          335.2,
+          526.7
+        ]
+      },
+      "rgb_only": {
+        "n_images": 16,
+        "n_with_prediction": 16,
+        "n_no_detection": 0,
+        "mae_kg": 0.11531250000000001,
+        "mape_pct": 21.433550185873603,
+        "bias_kg": 0.0861875,
+        "worst_abs_err_kg": 0.274,
+        "r2": null,
+        "distance_mm_range": [
+          336.2,
+          528.1
+        ]
+      },
+      "depth_only": {
+        "n_images": 16,
+        "n_with_prediction": 16,
+        "n_no_detection": 0,
+        "mae_kg": 0.094125,
+        "mape_pct": 17.495353159851298,
+        "bias_kg": 0.091125,
+        "worst_abs_err_kg": 0.244,
+        "r2": null,
+        "distance_mm_range": [
+          330.0,
+          525.9
+        ]
+      }
+    }
+  },
+  "change_vs_rgbd": {
+    "rgb_only": {
+      "n_frames": 16,
+      "mean_pct": 7.495427976147639,
+      "median_pct": 8.006819421713027
+    },
+    "depth_only": {
+      "n_frames": 16,
+      "mean_pct": 8.403076013612399,
+      "median_pct": 7.845815233610762
+    }
+  }
+}

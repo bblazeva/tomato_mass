@@ -1,0 +1,82 @@
+cv5_20k: 5 folds, cv5_fold{}_20k
+MAPE % per image and per cluster; miss = no detection
+
+Per fold
+                                   rgbd                rgb_only             depth_only      
+                    images   image cluster  miss   image cluster  miss   image cluster  miss
+fold 0                 231    13.8    17.2     0    14.0    17.9     0    17.0    19.9     0
+fold 1                 228    22.2    22.8     0    21.1    22.5     0    24.0    25.2     1
+fold 2                 235    23.3    22.6     0    25.0    23.8     0    25.1    23.9     1
+fold 3                 227    13.0    13.6     0    12.9    13.8     0    13.5    13.5     0
+fold 4                 201    22.4    26.3     0    23.5    26.6     0    25.3    30.6     0
+all folds             1122    18.9    20.5     0    19.2    20.9     0    20.9    22.6     2
+mean +- std over folds (per image): rgbd 19.0 +- 5.1, rgb_only 19.3 +- 5.5, depth_only 21.0 +- 5.4
+
+Same frames (1120 images where every input has a prediction)
+                                   rgbd                rgb_only             depth_only      
+                    images   image cluster  miss   image cluster  miss   image cluster  miss
+all folds             1120    18.9    20.5     0    19.2    20.9     0    20.9    22.6     0
+rgbd - rgb_only, per cluster: -0.4 points (95% over clusters -1.3 to +0.5)
+rgbd - depth_only, per cluster: -2.1 points (95% over clusters -3.8 to -0.4)
+
+Per session
+                                   rgbd                rgb_only             depth_only      
+                    images   image cluster  miss   image cluster  miss   image cluster  miss
+2025-07-13             573    19.6    23.1     0    19.6    22.7     0    21.5    25.5     2
+2025-03-28             416    19.0    20.5     0    19.7    21.5     0    20.1    21.3     0
+2023-12-01             133    15.7    16.9     0    15.9    17.2     0    20.5    21.3     0
+
+Per mass range
+                                   rgbd                rgb_only             depth_only      
+                    images   image cluster  miss   image cluster  miss   image cluster  miss
+0-250 g                204    21.2    22.6     0    21.0    23.3     0    26.1    25.6     1
+250-500 g              252    24.7    26.0     0    26.0    26.7     0    29.1    30.5     1
+500-800 g              323    16.3    16.8     0    16.4    17.0     0    15.9    16.0     0
+>= 800 g               343    15.7    15.3     0    15.8    15.2     0    16.5    17.0     0
+
+Per cluster, by mass (RGB-D / RGB only / depth only: MAPE %, RGB-D bias in g)
+  122 g  2023-12-01  fold 2  n=  5    21.3   22.5   27.9  bias   +26.0 g  depth misses 0
+  123 g  2023-12-01  fold 3  n= 11    17.0   17.0   13.5  bias   +20.9 g  depth misses 0
+  136 g  2023-12-01  fold 1  n= 22     7.0    6.7   18.4  bias    +9.1 g  depth misses 0
+  145 g  2023-12-01  fold 0  n=  8     6.5    7.8    6.0  bias    +6.8 g  depth misses 0
+  150 g  2023-12-01  fold 4  n= 17    12.7   12.4    9.0  bias   -19.0 g  depth misses 0
+  164 g  2025-07-13  fold 1  n= 43    33.8   26.1   40.6  bias   +55.4 g  depth misses 1
+  165 g  2023-12-01  fold 3  n= 14    12.6   12.8    9.5  bias   -20.8 g  depth misses 0
+  183 g  2023-12-01  fold 1  n= 12    44.4   44.5   57.0  bias   +81.2 g  depth misses 0
+  186 g  2025-03-28  fold 0  n=  9    60.2   66.0   60.0  bias  +112.0 g  depth misses 0
+  208 g  2025-07-13  fold 0  n= 45    11.2   15.3   21.1  bias    -6.0 g  depth misses 0
+  220 g  2025-03-28  fold 1  n=  9    24.7   27.8   27.3  bias   +36.1 g  depth misses 0
+  239 g  2025-07-13  fold 3  n=  9    20.0   21.1   16.7  bias   -47.9 g  depth misses 0
+  280 g  2023-12-01  fold 4  n= 13    24.7   26.6   36.2  bias   +62.5 g  depth misses 0
+  296 g  2025-03-28  fold 3  n= 22    14.8   16.1   17.7  bias    +5.4 g  depth misses 0
+  329 g  2025-03-28  fold 4  n= 18    34.0   37.8   37.7  bias  +111.9 g  depth misses 0
+  364 g  2023-12-01  fold 2  n= 16    10.3   11.2   12.0  bias    -7.6 g  depth misses 0
+  368 g  2025-03-28  fold 2  n= 17    34.0   37.6   31.6  bias  +125.0 g  depth misses 0
+  375 g  2025-07-13  fold 4  n=  7    58.7   54.0   75.3  bias  +220.1 g  depth misses 0
+  390 g  2025-03-28  fold 4  n= 28    18.6   26.2   23.8  bias   +72.6 g  depth misses 0
+  421 g  2025-03-28  fold 2  n= 20    12.1   11.7    8.5  bias   -40.5 g  depth misses 0
+  430 g  2023-12-01  fold 0  n= 15    12.2   10.0   23.5  bias   -52.3 g  depth misses 0
+  450 g  2025-07-13  fold 2  n= 27    53.4   50.8   44.2  bias  +237.6 g  depth misses 0
+  470 g  2025-03-28  fold 0  n= 24    15.9   12.3   15.1  bias   -74.8 g  depth misses 0
+  490 g  2025-07-13  fold 2  n= 45    23.1   26.6   39.9  bias   +86.6 g  depth misses 1
+  507 g  2025-03-28  fold 1  n= 17    14.7   19.9   19.1  bias   +28.7 g  depth misses 0
+  560 g  2025-03-28  fold 3  n= 28    15.2   13.5   15.8  bias   -69.5 g  depth misses 0
+  566 g  2025-07-13  fold 0  n= 35     9.6   10.3   11.5  bias   -52.4 g  depth misses 0
+  600 g  2025-07-13  fold 1  n= 39    20.7   18.8   15.6  bias  +124.3 g  depth misses 0
+  608 g  2025-03-28  fold 1  n= 20    18.3   22.6   16.9  bias  +100.9 g  depth misses 0
+  655 g  2025-03-28  fold 3  n= 21    13.7   14.8   11.7  bias   +33.7 g  depth misses 0
+  670 g  2025-07-13  fold 3  n= 46    11.8   10.7   12.6  bias   +68.9 g  depth misses 0
+  697 g  2025-03-28  fold 0  n= 13    10.5   14.2    7.7  bias   +73.3 g  depth misses 0
+  705 g  2025-03-28  fold 2  n= 16    18.6   18.4   18.5  bias  -130.8 g  depth misses 0
+  727 g  2025-03-28  fold 4  n= 23    29.3   24.5   32.3  bias  -212.8 g  depth misses 0
+  765 g  2025-03-28  fold 1  n= 15    23.6   17.4   14.0  bias  -159.7 g  depth misses 0
+  790 g  2025-07-13  fold 4  n= 50    15.9   18.7   17.0  bias  -125.6 g  depth misses 0
+  820 g  2025-07-13  fold 0  n= 58    10.9    8.7   10.3  bias   +79.8 g  depth misses 0
+  836 g  2025-03-28  fold 4  n= 21    21.6   20.5   23.1  bias  -180.8 g  depth misses 0
+  857 g  2025-03-28  fold 2  n= 25     9.3   10.6   12.3  bias   +78.7 g  depth misses 0
+  926 g  2025-03-28  fold 3  n= 22     3.7    4.3    9.9  bias    -3.2 g  depth misses 0
+  940 g  2025-07-13  fold 3  n= 54    13.9   13.6   14.2  bias  +129.8 g  depth misses 0
+  947 g  2025-03-28  fold 0  n= 24    17.8   16.6   23.5  bias  -168.5 g  depth misses 0
+ 1010 g  2025-07-13  fold 2  n= 64    21.5   24.7   20.1  bias  -217.4 g  depth misses 0
+ 1029 g  2025-03-28  fold 4  n= 24    21.0   19.0   21.2  bias  -216.3 g  depth misses 0
+ 1160 g  2025-07-13  fold 1  n= 51    18.3   19.0   18.0  bias  -211.9 g  depth misses 0

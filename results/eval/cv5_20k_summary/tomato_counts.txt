@@ -1,0 +1,48 @@
+46 clusters (11 with occlusion-flagged counts)
+
+A. Mean tomato mass per cluster (g), per session
+  2025-07-13: 14 clusters, 20, 20, 21, 188, 200, 205, 223, 225, 232, 235, 245, 252, 263, 283
+    correlation of log mass with log count -0.47, with log tomato mass +0.86
+  2025-03-28: 21 clusters, 92, 93, 94, 95, 96, 98, 99, 100, 101, 104, 104, 110, 110, 116, 118, 118, 118, 122, 129, 140, 140
+    correlation of log mass with log count +0.96, with log tomato mass +0.22
+  2023-12-01: 11 clusters, 15, 15, 15, 18, 19, 20, 21, 86, 91, 92, 93
+    correlation of log mass with log count -0.54, with log tomato mass +0.86
+  Largest gap in home tomato sizes: 21 to 188 g. Lab clusters inside that gap: 21 of 21
+
+B. Cross-validation models: reaction to tomato count (a) and tomato size (b). Perfect = +1.00
+  all clusters
+    rgbd        n=46  a +0.66 (+0.55 to +0.78)   b +0.87 (+0.81 to +0.93)   typical log error 0.205
+    rgb_only    n=46  a +0.69 (+0.57 to +0.81)   b +0.87 (+0.81 to +0.93)   typical log error 0.200
+    depth_only  n=46  a +0.61 (+0.51 to +0.72)   b +0.83 (+0.77 to +0.89)   typical log error 0.216
+  without occlusion-flagged counts
+    rgbd        n=35  a +0.64 (+0.47 to +0.81)   b +0.85 (+0.77 to +0.93)   typical log error 0.199
+    rgb_only    n=35  a +0.66 (+0.48 to +0.82)   b +0.85 (+0.76 to +0.93)   typical log error 0.194
+    depth_only  n=35  a +0.62 (+0.45 to +0.76)   b +0.83 (+0.75 to +0.90)   typical log error 0.202
+  within each session (session offsets added, all clusters)
+    rgbd        n=46  a +0.63 (+0.51 to +0.77)   b +0.82 (+0.73 to +0.91)
+    rgb_only    n=46  a +0.64 (+0.52 to +0.78)   b +0.82 (+0.74 to +0.91)
+    depth_only  n=46  a +0.58 (+0.46 to +0.70)   b +0.77 (+0.68 to +0.86)
+
+C. Prediction shift when the background is removed: log(altered / normal), per cluster
+   Coefficient on log tomato mass at equal total mass. Negative = small tomatoes shift up more.
+  rgb_blur_bg   tomato mass -0.04 (-0.11 to +0.03)   without 208 g: -0.02 (-0.07 to +0.04)
+  rgb_blank_bg  tomato mass -0.07 (-0.14 to -0.00)   without 208 g: -0.05 (-0.12 to +0.01)
+  rgb_blur_bg   median factor: tomatoes under 40 g (n=10) x0.99, larger tomatoes in clusters under 500 g (n=15) x1.01
+  rgb_blank_bg  median factor: tomatoes under 40 g (n=10) x1.09, larger tomatoes in clusters under 500 g (n=15) x1.04
+
+D. Home-only models on the lab session: log(pred / true) vs tomato count and size, per cluster
+  model 5  rgbd        n=21  count -1.07 (-1.24 to -0.88)   size -0.45 (-0.99 to +0.31)   mean over-estimate x1.39
+  model 5  depth_only  n=21  count -0.71 (-0.89 to -0.48)   size -0.01 (-0.67 to +0.73)   mean over-estimate x1.05
+  7c       rgbd        n=21  count -0.87 (-1.16 to -0.65)   size -0.32 (-1.10 to +0.60)   mean over-estimate x1.40
+  7c       depth_only  n=21  count -0.73 (-0.97 to -0.52)   size -0.21 (-1.03 to +0.57)   mean over-estimate x1.12
+  7a       rgbd        n=21  count -0.77 (-0.99 to -0.61)   size -0.50 (-1.09 to +0.19)   mean over-estimate x1.22
+  7a       depth_only  n=18  count -0.73 (-1.02 to -0.53)   size -0.49 (-1.06 to +0.13)   mean over-estimate x0.92
+  Model 5 RGB-D, lab clusters by tomato count (mean log error as a factor):
+    2 tomatoes: x3.89  masses [186, 220]
+    3 tomatoes: x2.16  masses [296, 329, 421]
+    4 tomatoes: x1.77  masses [368, 390, 470, 560]
+    5 tomatoes: x1.30  masses [507, 608]
+    6 tomatoes: x1.19  masses [705]
+    7 tomatoes: x1.22  masses [655, 697, 727]
+    8 tomatoes: x0.79  masses [765, 836, 926, 947, 1029]
+    9 tomatoes: x0.57  masses [857]

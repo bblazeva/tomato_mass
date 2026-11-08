@@ -1,0 +1,24 @@
+521 images, 46 clusters
+
+A. Silhouette test: depth-only input, cross-validation models
+  real           no detection   1, top detection off the cluster   4, of 521 images
+  cluster only   no detection  13, top detection off the cluster   1, of 521 images
+  silhouette     no detection  13, top detection off the cluster   0, of 521 images
+  MAPE on the 503 images valid in all three:
+                  images              real      cluster only        silhouette   (per image, per cluster)
+    all              503     21.4     22.2     28.8     29.5     29.5     30.0
+    2025-07-13       145     23.0     24.6     28.6     29.3     28.9     29.6
+    2023-12-01       112     21.0     21.0     33.9     34.1     35.7     34.9
+    2025-03-28       246     20.7     21.3     26.6     27.2     27.1     27.7
+  cluster only - real, per cluster: +7.3 points (+3.3 to +11.4)
+  silhouette - cluster only, per cluster: +0.5 points (-0.9 to +2.0)
+  silhouette - real, per cluster: +7.8 points (+3.4 to +12.2)
+
+B. Pasted-depth test. Pull: slope of log(pasted / real prediction) on log(other mass / own mass), 95% over clusters.
+   Change: median |pasted / real - 1| per image. Box moved = top detection off the cluster after pasting.
+  cross-validation  rgbd        n=521  pull -0.01 (-0.02 to -0.00)   change: other   1.3%, same (control)   1.0%   over 25%: 5, towards other's mass 20%   box moved: other 0, same 0
+  cross-validation  depth_only  n=504  pull +0.13 (+0.07 to +0.22)   change: other  17.1%, same (control)   8.0%   over 25%: 173, towards other's mass 80%   box moved: other 11, same 2
+  model 5, Home val rgbd        n= 48  pull -0.00 (-0.02 to +0.01)   change: other   1.1%, same (control)   0.8%   over 25%: 0, towards other's mass nan%   box moved: other 0, same 0
+  model 5, Home val depth_only  n= 39  pull +0.11 (+0.02 to +0.19)   change: other  16.4%, same (control)   7.2%   over 25%: 11, towards other's mass 100%   box moved: other 6, same 3
+  7a, Home val      rgbd        n= 48  pull +0.01 (-0.01 to +0.03)   change: other   2.8%, same (control)   2.2%   over 25%: 0, towards other's mass nan%   box moved: other 0, same 0
+  7a, Home val      depth_only  n= 45  pull +0.07 (-0.07 to +0.24)   change: other  18.0%, same (control)   5.6%   over 25%: 15, towards other's mass 80%   box moved: other 2, same 1

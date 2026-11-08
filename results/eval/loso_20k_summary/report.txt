@@ -1,0 +1,104 @@
+=== Held out: lab (2025-03-28), 416 images
+  rgbd                   MAPE  37.8%  per cluster  38.6%  MAE  273 g  R2 -1.29  bias  -257 g  misses 0
+  rgb_only               MAPE  36.4%  per cluster  37.5%  MAE  264 g  R2 -1.16  bias  -242 g  misses 0
+  depth_only             MAPE  53.3%  per cluster  51.1%  MAE  367 g  R2 -2.33  bias  -366 g  misses 0
+  rgbd - rgb_only: +1.2 points (-0.3 to +2.4)
+  rgbd - depth_only: -12.5 points (-20.6 to -2.3)
+  For comparison, same images, cross-validation (session in training):
+  rgbd                   MAPE  19.0%  per cluster  20.5%  MAE  110 g  R2 +0.68  bias   -32 g  misses 0
+  rgb_only               MAPE  19.7%  per cluster  21.5%  MAE  110 g  R2 +0.69  bias    -7 g  misses 0
+  depth_only             MAPE  20.1%  per cluster  21.3%  MAE  117 g  R2 +0.62  bias   -42 g  misses 0
+  For comparison, same images, home-only models (RGB-D, then depth only):
+  model 5 rgbd           MAPE  66.8%  per cluster  77.9%  MAE  297 g  R2 -1.14  bias  +157 g  misses 0
+  model 5 depth_only     MAPE  35.8%  per cluster  42.3%  MAE  205 g  R2 -0.39  bias    -8 g  misses 29
+  7c rgbd                MAPE  62.4%  per cluster  67.6%  MAE  286 g  R2 -0.95  bias  +181 g  misses 0
+  7c depth_only          MAPE  42.5%  per cluster  45.8%  MAE  226 g  R2 -0.46  bias   +34 g  misses 15
+  7a rgbd                MAPE  44.8%  per cluster  48.4%  MAE  216 g  R2 -0.23  bias   +76 g  misses 1
+  7a depth_only          MAPE  30.8%  per cluster  29.1%  MAE  196 g  R2 -0.35  bias   -67 g  misses 63
+  Reaction to tomato count (a) and size (b), perfect = +1.00:
+    rgbd        a +0.05 (-0.16 to +0.25)   b +0.47 (-0.20 to +1.38)
+    rgb_only    a +0.06 (-0.17 to +0.25)   b +0.44 (-0.21 to +1.28)
+    depth_only  a +0.18 (+0.04 to +0.31)   b +0.81 (+0.35 to +1.48)
+  Per cluster, by mass: tomatoes, g per tomato, mean prediction g (RGB-D / RGB only / depth only)
+      186 g   2 tomatoes    93 g each    309 /   326 /   177
+      220 g   2 tomatoes   110 g each    313 /   306 /   205
+      296 g   3 tomatoes    99 g each    281 /   294 /   212
+      329 g   3 tomatoes   110 g each    321 /   331 /   233
+      368 g   4 tomatoes    92 g each    375 /   400 /   211
+      390 g   4 tomatoes    98 g each    390 /   423 /   251
+      421 g   3 tomatoes   140 g each    359 /   367 /   247
+      470 g   4 tomatoes   118 g each    409 /   435 /   233
+      507 g   5 tomatoes   101 g each    321 /   333 /   198
+      560 g   4 tomatoes   140 g each    379 /   408 /   298
+      608 g   5 tomatoes   122 g each    381 /   396 /   251
+      655 g   7 tomatoes    94 g each    389 /   411 /   250
+      697 g   7 tomatoes   100 g each    404 /   424 /   254
+      705 g   6 tomatoes   118 g each    551 /   542 /   395
+      727 g   7 tomatoes   104 g each    399 /   413 /   234
+      765 g   8 tomatoes    96 g each    232 /   248 /   175
+      836 g   8 tomatoes   104 g each    381 /   391 /   316
+      857 g   9 tomatoes    95 g each    248 /   258 /   221
+      926 g   8 tomatoes   116 g each    353 /   366 /   270
+      947 g   8 tomatoes   118 g each    519 /   521 /   375
+     1029 g   8 tomatoes   129 g each    276 /   299 /   246
+
+=== Held out: home (2025-07-13), 573 images
+  rgbd                   MAPE  30.9%  per cluster  29.1%  MAE  237 g  R2 -0.06  bias  -222 g  misses 9
+  rgb_only               MAPE  32.8%  per cluster  30.3%  MAE  246 g  R2 -0.15  bias  -229 g  misses 0
+  depth_only             MAPE  39.2%  per cluster  37.4%  MAE  313 g  R2 -0.76  bias  -284 g  misses 312
+  rgbd - rgb_only: -0.3 points (-2.8 to +3.0)
+  rgbd - depth_only: -10.6 points (-16.7 to -5.3)
+  For comparison, same images, cross-validation (session in training):
+  rgbd                   MAPE  19.6%  per cluster  23.1%  MAE  123 g  R2 +0.76  bias    +1 g  misses 0
+  rgb_only               MAPE  19.6%  per cluster  22.7%  MAE  127 g  R2 +0.73  bias   -18 g  misses 0
+  depth_only             MAPE  21.5%  per cluster  25.5%  MAE  129 g  R2 +0.72  bias    +9 g  misses 2
+  Reaction to tomato count (a) and size (b), perfect = +1.00:
+    rgbd        a +0.38 (-0.01 to +0.76)   b +0.58 (+0.00 to +0.78)
+    rgb_only    a +0.44 (+0.04 to +0.85)   b +0.59 (-0.04 to +0.80)
+    depth_only  a +0.18 (-0.21 to +0.51)   b +0.42 (+0.00 to +0.60)
+  Per cluster, by mass: tomatoes, g per tomato, mean prediction g (RGB-D / RGB only / depth only)
+      164 g   8 tomatoes    20 g each    165 /   157 /   189
+      208 g  10 tomatoes    21 g each    195 /   225 /   311
+      239 g  12 tomatoes    20 g each    200 /   199 /   176
+      375 g   2 tomatoes   188 g each    520 /   473 /   554
+      450 g   2 tomatoes   225 g each    401 /   379 /   375
+      490 g   2 tomatoes   245 g each    338 /   306 /   412
+      566 g   2 tomatoes   283 g each    441 /   435 /   433
+      600 g   3 tomatoes   200 g each    555 /   547 /   441
+      670 g   3 tomatoes   223 g each    519 /   531 /   534
+      790 g   3 tomatoes   263 g each    457 /   430 /   493
+      820 g   4 tomatoes   205 g each    438 /   457 /   466
+      940 g   4 tomatoes   235 g each    729 /   722 /   544
+     1010 g   4 tomatoes   252 g each    516 /   477 /   419
+     1160 g   5 tomatoes   232 g each    690 /   690 /   638
+
+=== Held out: 2023 (2023-12-01), 133 images
+  rgbd                   MAPE 249.0%  per cluster 261.2%  MAE  392 g  R2 -20.31  bias  +392 g  misses 0
+  rgb_only               MAPE 243.4%  per cluster 255.4%  MAE  382 g  R2 -19.58  bias  +382 g  misses 0
+  depth_only             MAPE 154.9%  per cluster 168.5%  MAE  255 g  R2 -7.29  bias  +251 g  misses 2
+  rgbd - rgb_only: +5.8 points (+3.6 to +8.1)
+  rgbd - depth_only: +93.5 points (+13.3 to +189.9)
+  For comparison, same images, cross-validation (session in training):
+  rgbd                   MAPE  15.7%  per cluster  15.9%  MAE   34 g  R2 +0.82  bias    +7 g  misses 0
+  rgb_only               MAPE  15.9%  per cluster  16.1%  MAE   34 g  R2 +0.82  bias    +8 g  misses 0
+  depth_only             MAPE  20.5%  per cluster  20.5%  MAE   47 g  R2 +0.58  bias   +10 g  misses 0
+  RGB-D by whether the mass is inside the training range:
+  under 164 g (outside)  MAPE 434.7%  per cluster 410.8%  MAE  599 g  R2 -4313.03  bias  +599 g  misses 0
+  164 g and up (inside)  MAPE  81.8%  per cluster  81.7%  MAE  205 g  R2 -4.30  bias  +205 g  misses 0
+  Reaction to tomato count (a) and size (b), perfect = +1.00:
+    rgbd        a +1.03 (-0.09 to +2.27)   b +0.37 (-0.55 to +0.89)
+    rgb_only    a +1.03 (-0.15 to +2.25)   b +0.37 (-0.57 to +0.90)
+    depth_only  a +0.64 (+0.16 to +0.97)   b +0.37 (+0.06 to +0.54)
+  Per cluster, by mass: tomatoes, g per tomato, mean prediction g (RGB-D / RGB only / depth only)
+      122 g   8 tomatoes    15 g each    961 /   957 /   487
+      123 g   6 tomatoes    20 g each    435 /   426 /   374
+     136a g   7 tomatoes    19 g each    416 /   405 /   420
+     136b g   9 tomatoes    15 g each   1000 /   988 /   603
+      145 g   8 tomatoes    18 g each    374 /   353 /   426
+      150 g  10 tomatoes    15 g each    938 /   929 /   496
+      165 g   8 tomatoes    21 g each    471 /   458 /   408
+      183 g   2 tomatoes    92 g each    293 /   284 /   318
+      280 g   3 tomatoes    93 g each    415 /   420 /   462
+      364 g   4 tomatoes    91 g each    584 /   570 /   538
+      430 g   5 tomatoes    86 g each    662 /   654 /   562
+
